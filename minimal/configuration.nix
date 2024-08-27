@@ -65,7 +65,7 @@
   services.openssh.enable = true;
 
   # 防火墙
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   # 启用打印服务
   services.printing.enable = true;
