@@ -20,7 +20,7 @@
       device = "nodev";
       useOSProber = true;
       efiInstallAsRemovable = true;
-      default = "2";
+      default = "saved";
     };
   };
 
