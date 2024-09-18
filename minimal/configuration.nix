@@ -106,6 +106,9 @@
 
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   system.stateVersion = "24.05"; # Did you read the comment?
-
+  
+  time.timeStamps = false;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "quiet" "loglevel=3" "nowatchdog" ];
 }
 
