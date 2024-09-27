@@ -5,7 +5,7 @@
   inputs = {
 
     # nixpkgs.url = "https://github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-chanels/nixos-24.05/nixexprs.tar.xz";
+    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-chanels/nixpkgs-unstable/nixexprs.tar.xz";
 
   };
