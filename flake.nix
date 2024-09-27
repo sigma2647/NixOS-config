@@ -1,28 +1,15 @@
 {
+  description = "A very basic flake";
 
-  description = "Lawrence's config";
-  
   inputs = {
-
-    # nixpkgs.url = "https://github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
-    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-chanels/nixpkgs-unstable/nixexprs.tar.xz";
-
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
+  outputs = { self, nixpkgs }: {
 
-  outputs = { self, nixpkgs, ... }:
-    let
-      lib = nixpkgs.lib;
-    in {
-    nixosConfigurations = {
-      nixos-home = lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ hosts/nix-home/configuration.nix ];
-      };
-    };
+    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+
+    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+
   };
 }
-
-
-
