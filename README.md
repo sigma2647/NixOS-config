@@ -1,7 +1,12 @@
 NixOS \& Legacy Boot(MBR) VmwareWorkstation安装向导
 ===============================================
 
-[blog.csdn.net](https://blog.csdn.net/qq_52357217/article/details/130527282)成就一亿技术人!
+# My Nixos-config
+
+```bash
+nix flake init -t https://code.m3tam3re.com/m3tam3re/nix-flake-templates/archive/master.tar.gz#nixos-standard
+
+```
 
 #### {#t1}目录
 
@@ -401,3 +406,6 @@ Vmware Tools 安装后无法根据显示器大小自适应缩放，已经在 Nix
 \[2023.05.07\] 已解决，具体看这篇文章 → \\rightarrow → [解决NixOS在Vmware中无法自适应显示缩放问题](https://blog.csdn.net/qq_52357217/article/details/130539679?spm=1001.2014.3001.5501)
 
 [跳转到 Cubox 查看](https://cubox.pro/my/card?id=7223997846989572487)
+
+
+

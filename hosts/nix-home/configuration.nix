@@ -24,7 +24,7 @@
     };
   };
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nix-home"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -81,12 +81,17 @@
     git
     wget
     curl
+
+    tmux
+    kitty
+    lf
+    lazygit
+
     #firefox
     #hyprland                   # 安装 Hyprland
     #waybar                     # 可选: Wayland 状态栏
     #wofi                       # 可选: 应用启动器
     #dunst                      # 可选: 通知管理器
-    #kitty
 
     #fcitx5
     #fcitx5-configtool
@@ -106,7 +111,7 @@
 
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   system.stateVersion = "24.05"; # Did you read the comment?
-  
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "quiet" "loglevel=3" "nowatchdog" ];
 }
