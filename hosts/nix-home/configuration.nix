@@ -87,10 +87,15 @@
     lf
     lazygit
 
-    #firefox
-    #hyprland                   # 安装 Hyprland
-    #waybar                     # 可选: Wayland 状态栏
-    #wofi                       # 可选: 应用启动器
+    zsh
+    stow
+    flatpak
+
+    firefox
+
+    hyprland                   # 安装 Hyprland
+    waybar                     # 可选: Wayland 状态栏
+    rofi                       # 可选: 应用启动器
     #dunst                      # 可选: 通知管理器
 
     #fcitx5
@@ -105,11 +110,22 @@
     #gtk4
   ];
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  
+  programs.zsh = {
+    enable = true;
+    # enableCompletion = true;
+    # autosuggestion.enable = true;
+  };
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-    }
+    };
   };
 
 
