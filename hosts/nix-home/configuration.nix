@@ -87,6 +87,8 @@
     lf
     lazygit
 
+    fastfetch
+
     zsh
     stow
     flatpak
