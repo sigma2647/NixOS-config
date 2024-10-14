@@ -11,6 +11,7 @@
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-chanels/nixpkgs-unstable/nixexprs.tar.xz";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 

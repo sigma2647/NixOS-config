@@ -40,6 +40,10 @@
 
   # 配置 Nix 的 channels
   nixpkgs.config.allowUnfree = true;    # 允许安装非自由软件
+  nixpkgs.config.packageOverrides = pkgs: {
+    unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+  };
+
 
   # 用户
   users.users.sigma = {                   # 将 'xing' 替换为你的用户名
@@ -93,7 +97,11 @@
     starship
     zoxide
     pyenv
-    unstable.pywal16
+    fzf
+    atuin
+
+    ripgrep
+    # unstable.pywal16
 
     stow
     flatpak
@@ -132,8 +140,7 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       substituters = [
-          # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store",
-          "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable"
+          "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         ];
     };
   };
