@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -48,6 +49,7 @@
   # 用户
   users.users.sigma = {                   # 将 'xing' 替换为你的用户名
     isNormalUser = true;
+    shell = pkgs.zsh;
     createHome = true;
 		extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
     packages = with pkgs; [              # 默认安装的用户包
@@ -61,7 +63,7 @@
   security.sudo.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  
+  services.displayManager.sddm.enable = true;
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
@@ -140,8 +142,10 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       substituters = [
-          "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-        ];
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://cache.nixos.org/"
+      ];
     };
   };
 

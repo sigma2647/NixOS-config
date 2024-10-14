@@ -40,8 +40,8 @@
             ./hosts/nix-home/hardware-configuration.nix
 
             # ./hosts/nix-home
+            # ./hosts/nix-home/fonts.nix
           ];
-          # modules = [ ./hosts/nix-home ];
         };
         nix-jy = lib.nixosSystem {
           system = "x86_64-linux";
