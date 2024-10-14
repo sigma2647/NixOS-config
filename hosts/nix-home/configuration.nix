@@ -114,6 +114,13 @@
 
     python3
     # unstable.pywal16
+    #
+    gcc
+    libffi
+    openssl
+
+    lan-mouse
+
 
     stow
     flatpak
