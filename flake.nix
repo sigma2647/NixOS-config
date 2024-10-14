@@ -11,6 +11,9 @@
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-chanels/nixpkgs-unstable/nixexprs.tar.xz";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
+    home-manager.url = "github:nix-community/home-manager";
+
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
   };
 
@@ -33,14 +36,10 @@
         # hosts
         nix-home = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          # system = "x86_64-linux";
+          system = "x86_64-linux";
           modules = [
-            ./hosts/nix-home/configuration.nix
-            ./hosts/nix-home/hardware-configuration.nix
-
-            # ./hosts/nix-home
+            ./hosts/nix-home
           ];
-          # modules = [ ./hosts/nix-home ];
         };
         nix-jy = lib.nixosSystem {
           system = "x86_64-linux";

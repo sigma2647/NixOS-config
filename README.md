@@ -5,7 +5,6 @@ NixOS \& Legacy Boot(MBR) VmwareWorkstation安装向导
 
 ```bash
 nix flake init -t https://code.m3tam3re.com/m3tam3re/nix-flake-templates/archive/master.tar.gz#nixos-standard
-
 ```
 
 #### {#t1}目录

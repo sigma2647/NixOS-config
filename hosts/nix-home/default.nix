@@ -4,7 +4,7 @@
 # 
 # Please make sure to change the first couple of lines in your configuration.nix:
 
-# { config, inputs, ouputs, lib, pkgs, ... }:
+{ config, inputs, ouputs, lib, pkgs, ... }:
 #
 # {
 #   imports = [ # Include the results of the hardware scan.
@@ -37,5 +37,8 @@
 # networking.hostName = "nixos"; # Define your hostname.
 
 {
-  imports = [ ../common ./configuration.nix ];
+  imports = [
+    ./configuration.nix
+    ./hardware-configuration.nix
+  ];
 }
