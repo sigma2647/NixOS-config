@@ -90,6 +90,11 @@
     fastfetch
 
     zsh
+    starship
+    zoxide
+    pyenv
+    unstable.pywal16
+
     stow
     flatpak
 
@@ -116,17 +121,20 @@
     enable = true;
     xwayland.enable = true;
   };
-  
+
   programs.zsh = {
     enable = true;
-    # enableCompletion = true;
-    # autosuggestion.enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
   };
 
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+      substituters = [
+          # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store",
+          "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable"
+        ];
     };
   };
 
