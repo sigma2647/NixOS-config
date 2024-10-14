@@ -28,8 +28,10 @@
 
   networking.hostName = "nix-home"; # Define your hostname.
   # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  #
+
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -68,6 +70,11 @@
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
+
+  # Touchpad
+  services.xserver.libinput = {
+    enable = true;
+  }
 
    # 启用 SSH 服务
   services.openssh.enable = true;
@@ -108,11 +115,6 @@
     bat
 
     nodejs
-
-    xfce.thunar
-
-
-    python3
     # unstable.pywal16
 
     stow
@@ -147,10 +149,6 @@
     enableCompletion = true;
     autosuggestions.enable = true;
   };
-
-  # sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   nix = {
     settings = {
