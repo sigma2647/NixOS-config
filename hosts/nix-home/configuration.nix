@@ -113,7 +113,7 @@
 
 
     python3
-    zed
+    # zed
     # unstable.pywal16
     #
     gcc
