@@ -111,7 +111,7 @@
     ripgrep
 
     bat
-
+    pstree
     nodejs
 
     xfce.thunar
