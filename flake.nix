@@ -41,11 +41,11 @@
             ./hosts/nix-home
           ];
         };
-        nix-jy = lib.nixosSystem {
+        jy-alien = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             # hosts/nix-home/configuration.nix
-            ./hosts/nix-home
+            ./hosts/jy-alien
           ];
         };
       };
