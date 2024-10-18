@@ -2,6 +2,16 @@
 
   description = "Lawrence's config";
 
+  nixConfig = {
+    substituters = [
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org/"
+    ];
+  };
+
   inputs = {
     # home-manager = {
     #   url = "github:nix-community/home-manager";
@@ -12,6 +22,10 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
     home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+
+    };
 
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -46,6 +60,7 @@
           modules = [
             # hosts/nix-home/configuration.nix
             ./hosts/jy-alien
+	    # home-manager.nixosModules.home-manager
           ];
         };
       };
