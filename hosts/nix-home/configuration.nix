@@ -70,8 +70,11 @@
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
-
-   # 启用 SSH 服务
+  networking.defaultGateway6 = {
+    address = "fe80::1";
+    interface = "ens18";
+  };
+  # 启用 SSH 服务
   services.openssh.enable = true;
 
   # 防火墙
