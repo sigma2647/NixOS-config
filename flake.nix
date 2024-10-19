@@ -28,11 +28,10 @@
     ## nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
-    #home-manager.url = "github:nix-community/home-manager";
-    #home-manager = {
-    #  inputs.nixpkgs.follows = "nixpkgs";
-
-    #};
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
