@@ -2,14 +2,14 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-AAiPPnb8K5UUrH85txH5dUcgWfsZ224swe79RYlqhEk=",
-        "path": "/nix/store/h8k5n9c8zj1vsxh98xqffxzy77ncpypx-source",
-        "type": "path"
+        "lastModified": 1729188300,
+        "narHash": "sha256-INxGCCZajc5RcHlbB+7rQQ2/2V76UJf/6Kw0v4Mh5qw=",
+        "type": "tarball",
+        "url": "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "type": "tarball",
+        "url": "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz"
       }
     },
     "root": {

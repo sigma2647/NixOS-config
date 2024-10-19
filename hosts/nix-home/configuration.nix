@@ -6,8 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      # ./hardware-configuration.nix
       # ./fonts.nix
     ];
 
@@ -41,7 +41,7 @@
   };
 
   # 配置 Nix 的 channels
-  nixpkgs.config.allowUnfree = true;    # 允许安装非自由软件
+  nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
     unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
   };
@@ -92,6 +92,7 @@
     git
     wget
     curl
+    vscode
 
     tmux
     kitty
@@ -148,6 +149,8 @@
     #gtk2
     #gtk3
     #gtk4
+
+    emacs29-pgtk
   ];
 
   programs.hyprland = {
