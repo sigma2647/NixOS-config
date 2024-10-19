@@ -6,7 +6,7 @@
     substituters = [
       # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
       # "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org/"
     ];
