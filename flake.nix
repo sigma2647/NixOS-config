@@ -3,13 +3,13 @@
   description = "Lawrence's config";
 
   nixConfig = {
-    substituters = [
+    # substituters = [
       # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable"
       # "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://cache.nixos.org/"
-    ];
+      # "https://cache.nixos.org/"
+    # ];
   };
 
   inputs = {
