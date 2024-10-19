@@ -70,10 +70,6 @@
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
-  networking.defaultGateway6 = {
-    address = "fe80::1";
-    interface = "ens18";
-  };
   # 启用 SSH 服务
   services.openssh.enable = true;
 
@@ -172,11 +168,11 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = [
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-        "https://mirrors.ustc.edu.cn/nix-channels/store"
-        "https://cache.nixos.org/"
-      ];
+      # substituters = [
+        # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        # "https://mirrors.ustc.edu.cn/nix-channels/store"
+        # "https://cache.nixos.org/"
+      # ];
     };
   };
 
