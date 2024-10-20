@@ -118,6 +118,7 @@
 
 
     python3
+    xonsh
     # zed
     # unstable.pywal16
     #
