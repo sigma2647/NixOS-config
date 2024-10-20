@@ -1,9 +1,9 @@
 { pkgs, config, ... }:
 
 {
-  programsl.lf = {
+  programs.lf = {
 
-    enabel = true;
+    enable = true;
 
     settings = {
       preview = true;
