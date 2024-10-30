@@ -93,6 +93,7 @@
     git
     wget
     curl
+    btop
 
     tmux
     kitty

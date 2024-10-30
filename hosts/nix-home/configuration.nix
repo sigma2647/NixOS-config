@@ -148,6 +148,8 @@
     openssh
     home-manager
 
+    btop
+
     #gtk2
     #gtk3
     #gtk4
