@@ -146,6 +146,7 @@
     networkmanager
     networkmanagerapplet
     openssh
+    home-manager
 
     #gtk2
     #gtk3

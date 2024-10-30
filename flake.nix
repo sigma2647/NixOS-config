@@ -20,15 +20,15 @@
 
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
-  # outputs = { self, home-manager, nixpkgs, ... }@inputs:
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, home-manager, nixpkgs, ... }@inputs:
+  # outputs = { self, nixpkgs, ... }@inputs:
     let
       lib = nixpkgs.lib;
 
@@ -59,7 +59,8 @@
           modules = [
             # hosts/nix-home/configuration.nix
             ./hosts/jy-alien
-	    # home-manager.nixosModules.home-manager
+
+            home-manager.nixosModules.home-manager
           ];
         };
       };
