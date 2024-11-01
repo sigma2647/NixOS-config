@@ -105,6 +105,7 @@
     starship
     zoxide
     pyenv
+    direnv
     fzf
     atuin
 
