@@ -135,7 +135,6 @@
     gnome.nautilus
 
     firefox
-    ladybird
 
     hyprland                   # 安装 Hyprland
     waybar                     # 可选: Wayland 状态栏
