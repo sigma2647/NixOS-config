@@ -65,5 +65,11 @@
         };
       };
     };
+      homeConfigurations.lawrence = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home/home.nix  # 引用 Home Manager 的主配置文件
+        ];
+      };
 }
 
