@@ -1,5 +1,4 @@
 {
-
   description = "Lawrence's config";
 
   nixConfig = {
@@ -12,64 +11,51 @@
   };
 
   inputs = {
-    # nixpkgs.url = "https://github:NixOS/nixpkgs/nixos-24.05";
-    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-chanels/nixpkgs-unstable/nixexprs.tar.xz";
-    ## nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.05/nixexprs.tar.xz";
-
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-
-  outputs = { self, home-manager, nixpkgs, ... }@inputs:
-  # outputs = { self, nixpkgs, ... }@inputs:
-    let
-      lib = nixpkgs.lib;
-
-      inherit (self) outputs;
-      systems = [
-          "aarch64-linux"
-          "i686-linux"
-          "x86_64-linux"
-          "aarch64-darwin"
-          "x86_64-darwin"
-      ];
-
-
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-
-    in {
-      nixosConfigurations = {
-        # hosts
-        nix-home = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs ; };
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nix-home
-          ];
-        };
-        jy-alien = lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            # hosts/nix-home/configuration.nix
-            ./hosts/jy-alien
-
-            home-manager.nixosModules.home-manager
-          ];
-        };
-      };
-    };
-      homeConfigurations.lawrence = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = { self, home-manager, nixpkgs, ... }: 
+  let
+    lib = nixpkgs.lib;
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    forAllSystems = lib.genAttrs systems;
+  in
+  {
+    homeConfigurations = {
+      lawrence = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-darwin"; };
         modules = [
-          ./home/home.nix  # 引用 Home Manager 的主配置文件
+          ./home/home.nix
         ];
       };
-}
+    };
 
+    # 配置 NixOS
+    nixosConfigurations = {
+      nix-home = lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nix-home
+        ];
+      };
+
+      jy-alien = lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/jy-alien
+          home-manager.nixosModules.home-manager
+        ];
+      };
+    };
+  };
+}
