@@ -15,6 +15,7 @@
     lf
     lazygit
     fish
+    starship
   ];
 
   home.sessionVariables = {
