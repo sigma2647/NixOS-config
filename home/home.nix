@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.stateVersion = "23.11"; # 请根据实际版本设置
+  home.stateVersion = "24.11"; # 请根据实际版本设置
 
   home.username = "lawrence";
   home.homeDirectory = "/Users/lawrence";
