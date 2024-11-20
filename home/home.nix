@@ -16,6 +16,11 @@
     lazygit
     fish
     starship
+    stow
+    zoxide
+    home-manager
+    fish
+    pyenv
   ];
 
   home.sessionVariables = {
