@@ -21,6 +21,7 @@
     home-manager
     fish
     pyenv
+    tmux
     tealdeer
   ];
 
