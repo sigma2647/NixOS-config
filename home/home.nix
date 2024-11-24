@@ -22,6 +22,8 @@
     fish
     pyenv
     tealdeer
+    neovide
+    tmux
   ];
 
   home.sessionVariables = {
