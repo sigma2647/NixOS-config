@@ -26,7 +26,8 @@
     neovide
     tmux
     python3
-    python3Packages.virtualenv
+    pdm
+    uv
   ];
 
   home.sessionVariables = {
