@@ -24,6 +24,8 @@
     tealdeer
     neovide
     tmux
+    python3
+    python3Packages.virtualenv
   ];
 
   home.sessionVariables = {
