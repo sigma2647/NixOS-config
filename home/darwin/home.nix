@@ -24,6 +24,10 @@
     tmux
     tealdeer
     neovide
+    tmux
+    python3
+    pdm
+    uv
   ];
 
   home.sessionVariables = {
