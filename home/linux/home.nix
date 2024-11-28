@@ -23,7 +23,8 @@
     pyenv
     tmux
     tealdeer
-    neovide
+    tmux
+    python312
   ];
 
   home.sessionVariables = {
