@@ -19,7 +19,9 @@
     stow
     zoxide
     home-manager
+    direnv
     fish
+    bat
     pyenv
     tmux
     tealdeer

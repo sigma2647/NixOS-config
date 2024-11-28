@@ -12,6 +12,7 @@
     neovim
     zsh
     btop
+    direnv
     lf
     lazygit
     fish
@@ -20,11 +21,17 @@
     zoxide
     home-manager
     fish
-    pyenv
     tmux
     tealdeer
+    bat
     tmux
+
+
+
     python312
+    uv
+    pyenv
+    pipx
   ];
 
   home.sessionVariables = {
@@ -33,4 +40,5 @@
 
 
   # programs.fish.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 }
