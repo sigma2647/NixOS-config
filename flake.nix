@@ -35,10 +35,18 @@
   in
   {
     homeConfigurations = {
-      lawrence = home-manager.lib.homeManagerConfiguration {
+
+      darwin = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-darwin"; };
         modules = [
-          ./home/home.nix
+          ./home/darwin/home.nix
+        ];
+      };
+
+      linux = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        modules = [
+          ./home/linux/home.nix
         ];
       };
     };
