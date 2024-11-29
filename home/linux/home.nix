@@ -25,6 +25,7 @@
     tealdeer
     bat
     tmux
+    ripgrep
 
 
 
