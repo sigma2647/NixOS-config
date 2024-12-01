@@ -21,6 +21,10 @@
     home-manager
     direnv
     fish
+
+    ripgrep
+    fzf
+
     bat
     pyenv
     tmux
