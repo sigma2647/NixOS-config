@@ -66,7 +66,9 @@
   services.xserver.enable = true;
   # services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.displayManager.sddm.enable = true;
+  #services.displayManager.sddm.enable = true;
+  #services.displayManager.startx.enable = true;
+
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
@@ -132,11 +134,13 @@
 
     stow
     flatpak
-    gnome.nautilus
+    nautilus
+
+    # zed-editor
 
     firefox
 
-    hyprland                   # 安装 Hyprland
+    # hyprland                   # 安装 Hyprland
     waybar                     # 可选: Wayland 状态栏
     rofi                       # 可选: 应用启动器
     #dunst                      # 可选: 通知管理器
@@ -148,6 +152,7 @@
     networkmanagerapplet
     openssh
     home-manager
+    direnv
 
     btop
 
@@ -160,7 +165,7 @@
 
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    # xwayland.enable = true;
   };
 
   programs.zsh = {
@@ -170,8 +175,8 @@
   };
 
   # sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = true;
 
   nix = {
     settings = {
@@ -181,13 +186,14 @@
         # "https://mirrors.ustc.edu.cn/nix-channels/store"
         # "https://cache.nixos.org/"
       # ];
+      trusted-users = ["root" "sigma" "lawrence"];
     };
   };
 
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "quiet" "loglevel=3" "nowatchdog" ];
+  boot.kernelParams = [ "quiet" "loglevel=3" ];
 }
 

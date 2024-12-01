@@ -9,7 +9,7 @@
       "https://mirror.sjtu.edu.cn/nix-channels/store/"
       "https://cache.nixos.org/"
     ];
-    trusted-users = [ "root" "lawrence" ];
+    trusted-users = [ "root" "lawrence" "sigma" ];
   };
 
   inputs = {
