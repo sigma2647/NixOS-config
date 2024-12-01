@@ -24,6 +24,7 @@
 
     ripgrep
     fzf
+    yazi
 
     bat
     pyenv
