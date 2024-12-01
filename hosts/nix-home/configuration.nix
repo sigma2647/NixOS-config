@@ -54,9 +54,9 @@
     createHome = true;
 		extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
     packages = with pkgs; [              # 默认安装的用户包
+      git
       vim
       wget
-      htop
     ];
   };
 
@@ -73,7 +73,17 @@
   networking.networkmanager.enable = true;
 
   # 启用 SSH 服务
-  services.openssh.enable = true;
+
+  # 启用 OpenSSH 后台服务
+  services.openssh = {
+    enable = true;
+    settings = {
+      X11Forwarding = true;
+      # PermitRootLogin = "no"; # disable root login
+      # PasswordAuthentication = false; # disable password login
+    };
+    # openFirewall = true;
+  };
 
   # 防火墙
   networking.firewall.enable = false;
@@ -154,14 +164,14 @@
     home-manager
     direnv
 
-    btop
-
     #gtk2
     #gtk3
     #gtk4
 
     emacs29-pgtk
   ];
+
+  environment.variables.EDITOR = "nvim";
 
   programs.hyprland = {
     enable = true;
