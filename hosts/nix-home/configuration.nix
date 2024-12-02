@@ -96,6 +96,7 @@
 
   # 启用开机自动更新
   # system.autoUpgrade.enable = true;
+  # hardware.nvidia.enable = true;
 
   # 系统环境变量
   environment.systemPackages = with pkgs; [
@@ -204,6 +205,7 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.kernelParams = [ "quiet" "loglevel=3" ];
 }
 

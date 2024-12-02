@@ -66,9 +66,6 @@
 
             home-manager.extraSpecialArgs = inputs // specialArgs;
             home-manager.users.${username} = import ./users/${username}/home.nix;
-            # home-manager.users.${username} = import ./users/sigma/home.nix;
-            # home-manager.users.sigma = import ./home.nix;
-            # home-manager.users.sigma = import ./users/sigma/home.nix;
           }
         ];
       };
