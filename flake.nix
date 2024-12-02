@@ -25,14 +25,14 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    home-manager,
-    nixpkgs,
-    ...
-  }: {
+  outputs = { self, home-manager, nixpkgs, ... } @inputs:
+    let
+      linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
+      darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+      forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
+    in
+  {
     homeConfigurations = {
-
       darwin = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-darwin"; };
         modules = [
