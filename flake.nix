@@ -25,18 +25,12 @@
     };
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, ... }:
-  let
-    lib = nixpkgs.lib;
-    systems = [
-      "aarch64-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-    forAllSystems = lib.genAttrs systems;
-  in
-  {
+  outputs = inputs @ {
+    self,
+    home-manager,
+    nixpkgs,
+    ...
+  }: {
     homeConfigurations = {
 
       darwin = home-manager.lib.homeManagerConfiguration {
@@ -56,20 +50,44 @@
 
     # 配置 NixOS
     nixosConfigurations = {
-      nix-home = lib.nixosSystem {
-        system = "x86_64-linux";
+      nix-home = let
+        username = "sigma";
+        specialArgs = {inherit username;};
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
         modules = [
           ./hosts/nix-home
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+
+            home-manager.extraSpecialArgs = inputs // specialArgs;
+            # home-manager.users.${username} = import ./users/${username}/home.nix;
+            # home-manager.users.${username} = import ./users/sigma/home.nix;
             # home-manager.users.sigma = import ./home.nix;
+            home-manager.users.sigma = import ./users/sigma/home.nix;
           }
         ];
       };
 
-      jy-alien = lib.nixosSystem {
+
+      # nix-home = lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ./hosts/nix-home
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.sigma = import ./home.nix;
+      #     }
+      #   ];
+      # };
+
+      jy-alien = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/jy-alien
