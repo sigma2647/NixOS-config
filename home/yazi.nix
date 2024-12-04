@@ -33,10 +33,10 @@ in {
 		# 	};
 		# };
 
-		initLua = ''
-			require("full-border"):setup()
-			require("starship"):setup()
-		'';
+		# initLua = ''
+		# 	require("full-border"):setup()
+		# 	require("starship"):setup()
+		# '';
 
 		keymap = {
 			manager.prepend_keymap = [
