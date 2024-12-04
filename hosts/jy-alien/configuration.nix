@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # ./fonts.nix
+      # ./hardware-configuration.nix
+      ../fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -167,7 +167,7 @@
 
   # sound
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.enable = true;
 
   nix = {
     settings = {

@@ -41,5 +41,8 @@
 
 
   # programs.fish.enable = true;
-  programs.direnv.nix-direnv.enable = true;
+  imports = [
+    ../yazi.nix
+  ];
+
 }
