@@ -43,8 +43,8 @@
 
 
   # programs.fish.enable = true;
-  programs.yazi = {
-    enable = true;
-		enableZshIntegration = true;
-  }
+  # programs.fish.enable = true;
+  imports = [
+    ../yazi.nix
+  ];
 }
