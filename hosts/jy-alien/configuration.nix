@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       # ./hardware-configuration.nix
-      ../fonts.nix
+      # ../fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -66,7 +66,7 @@
   services.xserver.enable = true;
   # services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
@@ -132,7 +132,7 @@
 
     stow
     flatpak
-    gnome.nautilus
+    nautilus
 
     firefox
 
@@ -166,7 +166,7 @@
   };
 
   # sound
-  sound.enable = true;
+  # sound.enable = true;
   # hardware.pulseaudio.enable = true;
 
   nix = {
@@ -176,7 +176,7 @@
   };
 
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "quiet" "loglevel=3" "nowatchdog" ];

@@ -70,25 +70,23 @@
         ];
       };
 
-
-      # nix-home = lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [
-      #     ./hosts/nix-home
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users.sigma = import ./home.nix;
-      #     }
-      #   ];
-      # };
-
-      jy-alien = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      jy-alien = let
+        username = "sigma";
+        specialArgs = {inherit username;};
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
         modules = [
           ./hosts/jy-alien
           home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.extraSpecialArgs = inputs // specialArgs;
+            home-manager.users.${username} = import ./users/${username}/home.nix;
+          }
         ];
       };
     };

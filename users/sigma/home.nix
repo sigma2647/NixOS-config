@@ -4,6 +4,7 @@
     ../../home/core.nix
     ../../home/shell
     ../../home/lf
+    ../../home/yazi.nix
   ];
 
   programs.git = {
