@@ -54,3 +54,4 @@ in {
 		};
 	};
 }
+# refer https://yazi-rs.github.io/docs/resources/
