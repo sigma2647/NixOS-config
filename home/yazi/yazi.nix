@@ -1,10 +1,10 @@
 {pkgs, ...}: let
-	yazi-plugins = pkgs.fetchFromGitHub {
-		owner = "yazi-rs";
-		repo = "plugins";
-		rev = "...";
-		hash = "sha256-...";
-	};
+    yazi-plugins = pkgs.fetchFromGitHub {
+        owner = "yazi-rs";
+        repo = "plugins";
+        rev = "...";
+        hash = "sha256-...";
+    };
 in {
 	programs.yazi = {
 		enable = true;
@@ -32,7 +32,9 @@ in {
 		# 		sha256 = "sha256-...";
 		# 	};
 		# };
-
+        plugins = {
+		    lazygit = "${yazi-plugins}/lazygit.yazi";
+		};
 		# initLua = ''
 		# 	require("full-border"):setup()
 		# 	require("starship"):setup()
@@ -49,6 +51,16 @@ in {
 					on = ["c" "m"];
 					run = "plugin chmod";
 					desc = "Chmod on selected files";
+				}
+				{
+					on = ["g" "o"];
+					run = "cd ~/note/sigma/";
+					desc = "Cd to note";
+				}
+				{
+					on = ["g" "i"];
+					run = "plugin lazygit";
+					desc = "run lazygit";
 				}
 			];
 		};

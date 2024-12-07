@@ -7,6 +7,10 @@
     ../../home/yazi/yazi.nix
   ];
 
+  home.packages = with pkgs; [
+    tealdeer
+    bat
+  ];
   programs.git = {
     enable = true;
     userName = "sigma2647";

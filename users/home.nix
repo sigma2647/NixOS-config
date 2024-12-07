@@ -1,0 +1,1 @@
+/home/sigma/nixos-config/home/darwin/home.nix
