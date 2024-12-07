@@ -33,7 +33,8 @@ in {
 		# 	};
 		# };
         plugins = {
-		    lazygit = "${yazi-plugins}/lazygit.yazi";
+		    # lazygit = "${yazi-plugins}/lazygit.yazi";
+		    # chmod = "${yazi-plugins}/chmod.yazi";
 		};
 		# initLua = ''
 		# 	require("full-border"):setup()
@@ -42,6 +43,11 @@ in {
 
 		keymap = {
 			manager.prepend_keymap = [
+				{
+					on = ["A"];
+					run = "create --dir";
+					desc = "Maximize or restore the preview pane";
+				}
 				{
 					on = "T";
 					run = "plugin --sync max-preview";
