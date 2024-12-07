@@ -44,11 +44,6 @@ in {
 		keymap = {
 			manager.prepend_keymap = [
 				{
-					on = ["A"];
-					run = "create --dir";
-					desc = "Maximize or restore the preview pane";
-				}
-				{
 					on = "T";
 					run = "plugin --sync max-preview";
 					desc = "Maximize or restore the preview pane";
