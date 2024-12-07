@@ -35,6 +35,7 @@
     python3
     pdm
     uv
+    pipx
   ];
 
   home.sessionVariables = {
@@ -45,6 +46,6 @@
   # programs.fish.enable = true;
   # programs.fish.enable = true;
   imports = [
-    ../yazi.nix
+    ../yazi/yazi.nix
   ];
 }
