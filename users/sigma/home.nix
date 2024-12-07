@@ -5,6 +5,7 @@
     ../../home/shell
     ../../home/lf
     ../../home/yazi/yazi.nix
+    ../../home/kitty
   ];
 
   home.packages = with pkgs; [
