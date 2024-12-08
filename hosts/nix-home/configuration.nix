@@ -139,7 +139,7 @@
     gcc
     libffi
     openssl
-
+    # zathura
     lan-mouse
 
 
