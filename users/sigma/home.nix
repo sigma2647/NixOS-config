@@ -11,6 +11,8 @@
   home.packages = with pkgs; [
     tealdeer
     bat
+    # tree
+    # pyprland
   ];
   programs.git = {
     enable = true;
