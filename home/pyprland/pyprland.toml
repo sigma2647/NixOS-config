@@ -4,11 +4,11 @@ plugins = [
 ]
 
 
-[scratchpads.musicplayer]
-animation = ""
-command = "spotify"
-class = "Spotify"
-lazy = true
-size = "70% 70%"
+[scratchpads.term]
+# animation = ""
+command = "kitty --class scratchpads"
+# class = "Spotify"
+# lazy = true
+# size = "70% 70%"
 margin = 0
 
