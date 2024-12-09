@@ -12,7 +12,7 @@
     tealdeer
     bat
     # tree
-    # pyprland
+    pyprland
   ];
   programs.git = {
     enable = true;

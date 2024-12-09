@@ -106,6 +106,7 @@
     wget
     curl
     vscode
+    tree
 
     tmux
     kitty
