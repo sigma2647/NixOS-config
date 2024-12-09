@@ -33,7 +33,6 @@
     uv
     pyenv
     pipx
-    uncsd
   ];
 
   home.sessionVariables = {
