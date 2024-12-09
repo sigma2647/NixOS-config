@@ -177,6 +177,10 @@ in {
       # See https://wiki.hyprland.org/Configuring/Keywords/
       $mainMod = SUPER # Sets "Windows" key as main modifier
 
+      bind = $mainMod, F, fullscreenstate, 0, 3
+      bind = $mainMod SHIFT, M, fullscreen, 0
+
+
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod, Q, exec, $terminal
       bind = $mainMod, C, killactive,

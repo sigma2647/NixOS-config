@@ -132,7 +132,17 @@
     pstree
     nodejs
 
+    nautilus
     xfce.thunar
+    # ---
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
+    xfce.tumbler # 缩略图支持
+    papirus-icon-theme
+    adwaita-qt
+    # ---
+
+
 
 
     python3
@@ -149,7 +159,6 @@
 
     stow
     flatpak
-    nautilus
 
     # zed-editor
 
@@ -195,6 +204,11 @@
   #
   #
   security.rtkit.enable = true;
+
+  # enable gvfs for new morden function
+  services.tumbler.enable = true;
+  services.gvfs.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
