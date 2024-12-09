@@ -33,6 +33,7 @@
     uv
     pyenv
     pipx
+    uncsd
   ];
 
   home.sessionVariables = {
@@ -42,7 +43,7 @@
 
   # programs.fish.enable = true;
   imports = [
-    ../yazi.nix
+    ../yazi/yazi.nix
   ];
 
 }
