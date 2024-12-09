@@ -6,6 +6,7 @@
     ../../home/lf
     ../../home/yazi/yazi.nix
     ../../home/kitty
+    ../../home/pyprland
   ];
 
   home.packages = with pkgs; [
