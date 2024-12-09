@@ -177,8 +177,11 @@ in {
       # See https://wiki.hyprland.org/Configuring/Keywords/
       $mainMod = SUPER # Sets "Windows" key as main modifier
 
-      bind = $mainMod, F, fullscreenstate, 0, 3
-      bind = $mainMod SHIFT, M, fullscreen, 0
+      # bind = $mainMod, F, fullscreenstate, 0, 3
+      # bind = $mainMod SHIFT, M, fullscreen, 0
+      
+      bind = $mainMod, F,fullscreen,1
+      bind = $mainMod SHIFT,F,fullscreen,0
 
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
@@ -265,6 +268,31 @@ in {
 
       # Fix some dragging issues with XWayland
       windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+
+     # 浮动终端
+     # bind = $mainMod, T, exec, kitty --class float_term
+
+     # bind = $mainMod, T, exec, if hyprctl clients | grep float_term; then hyprctl dispatch closewindow address:^(float_term)$; else kitty --class float_term; fi
+
+
+     # $float_term = class:^(float_term)$
+     # windowrulev2 = float,$float_term
+     # windowrulev2 = center,$float_term
+     
+     
+     # windowrulev2 = float,class:^(float_term)$
+     # windowrulev2 = size 80% 85%,class:^(float_term)$
+     # windowrulev2 = center,class:^(float_term)$
+     #
+     # 固定问题在于命令格式，修正为:
+     # bind = $mainMod, T, exec, if hyprctl clients | grep float_term; then hyprctl dispatch closewindow 'class:^(float_term)$'; else kitty --class float_term; fi
+     bind = $mainMod, T, exec, if hyprctl clients | grep float_term; then echo "scratch_yazi respawn not needed"; else kitty --class float_term ; fi
+
+     $float_term = class:^(float_term)$
+     windowrulev2 = float,$float_term
+     windowrulev2 = center,$float_term
+
     '';
     xwayland = { enable = true; };
     systemd.enable = true;
