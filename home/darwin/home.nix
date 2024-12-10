@@ -36,6 +36,8 @@
     pdm
     uv
     pipx
+
+    zathura
   ];
 
   home.sessionVariables = {
