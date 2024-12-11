@@ -33,6 +33,7 @@
     uv
     pyenv
     pipx
+    tailscale
   ];
 
   home.sessionVariables = {
