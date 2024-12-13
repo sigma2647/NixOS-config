@@ -11,6 +11,7 @@
     vim
     neovim
     zsh
+    wget
     btop
     lf
     lazygit
