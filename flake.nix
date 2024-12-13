@@ -27,26 +27,43 @@
 
   outputs = { self, home-manager, nixpkgs, ... } @inputs:
     let
-      linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
-      darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
-      forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
+      systems = {
+        linux = [ "x86_64-linux" "aarch64-linux" ];
+        darwin = [ "aarch64-darwin" "x86_64-darwin" ];
+      };
+      forAllSystems = f: nixpkgs.lib.genAttrs (systems.linux ++ systems.darwin) f;
+      lib = nixpkgs.lib;
+      users = import ./lib/users.nix;
+      mkHost = { system ? "x86_64-linux"
+               , hostname
+               , username ? users.mainUser
+               , extraModules ? []
+               }: 
+        lib.nixosSystem {
+          inherit system;
+          specialArgs = { 
+            inherit inputs system hostname username; 
+          };
+          modules = [
+            # 基础配置
+            ./hosts/default.nix
+            # 特定主机配置
+            # ./hosts/${hostname}
+            # home-manager
+            home-manager.nixosModules.home-manager
+            {
+              networking.hostName = hostname;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = inputs // { inherit hostname username; };
+                users.${username} = import ./home/linux/home.nix;
+              };
+            }
+          ] ++ extraModules;
+        };
     in
   {
-    homeConfigurations = {
-      darwin = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-darwin"; };
-        modules = [
-          ./home/darwin/home.nix
-        ];
-      };
-
-      linux = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-        modules = [
-          ./home/linux/home.nix
-        ];
-      };
-    };
 
     # 配置 NixOS
     nixosConfigurations = {
@@ -90,5 +107,32 @@
         ];
       };
     };
+
+    homeConfigurations = {
+      darwin = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-darwin";
+        };
+        modules = [
+          ./home/darwin/home.nix
+        ];
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+      };
+
+      linux = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
+        modules = [
+          ./home/linux/home.nix
+        ];
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+      };
+    };
+
   };
 }
