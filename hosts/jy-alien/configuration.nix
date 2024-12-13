@@ -133,6 +133,7 @@
     stow
     flatpak
     nautilus
+    zathura
 
     firefox
 
