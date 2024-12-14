@@ -7,7 +7,7 @@
     ../../home/yazi/yazi.nix
     ../../home/kitty
     ../../home/pyprland
-    ../../home/hyprland/hyprland.nix
+    # ../../home/hyprland/hyprland.nix
 
   ];
 
