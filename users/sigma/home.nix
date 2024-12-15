@@ -16,6 +16,7 @@
     bat
     # tree
     pyprland
+    obsidian
   ];
   programs.git = {
     enable = true;
