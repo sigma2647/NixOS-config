@@ -7,6 +7,8 @@
     ../../home/yazi/yazi.nix
     ../../home/kitty
     ../../home/pyprland
+    ../../home/waybar
+    ../../home/rofi
     # ../../home/hyprland/hyprland.nix
 
   ];

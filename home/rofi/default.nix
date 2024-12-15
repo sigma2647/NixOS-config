@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  wayland.windowManager.rofi = {
+  programs.rofi = {
     enable = true;
   };
 }

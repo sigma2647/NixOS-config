@@ -6,27 +6,29 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    # settings = {
-    #   "$termianl" = "kitty";
-    #   "$fileManager" = "$terminal -e sh -c 'yazi'";
-    #   "$fileManager" = "thunar";
-    #   "$mainMod" = "SUPER";
+    settings = {
+      "$termianl" = "kitty";
+      # "$fileManager" = "$terminal -e sh -c 'yazi'";
+      "$fileManager" = "thunar";
+      "$mainMod" = "SUPER";
 
-    #   monitor = ",preferred,auto,auto";
+      monitor = ",preferred,auto,auto";
 
-    #   monitor = ",preferred,auto,auto";
-    #   monitor = ",preferred,auto,auto";
+      exec-once = "waybar";
+      exec-once = "pypr";
 
-    #   exec-once = ",preferred,auto,auto";
-    #   exec-once = "waybar";
+      bind = "$mainMod, h, movefocus, l";
+      bind = "$mainMod, l, movefocus, r";
+      bind = "$mainMod, k, movefocus, u";
+      bind = "$mainMod, j, movefocus, d";
 
-    #   bind = "$mainMod, h, movefocus, l";
-    #   bind = "$mainMod, l, movefocus, r";
-    #   bind = "$mainMod, k, movefocus, u";
-    #   bind = "$mainMod, j, movefocus, d";
+      env = 
+
+      env = XCURSOR_SIZE,24
+      env = HYPRCURSOR_SIZE,24
 
 
-    # }
+    }
 
 
 

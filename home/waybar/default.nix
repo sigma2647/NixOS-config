@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  wayland.windowManager.hyprland = {
+  # wayland.windowManager.hyprland = {
+  programs.waybar = {
     enable = true;
   };
 }
