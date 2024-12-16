@@ -1,27 +1,26 @@
 { config, pkgs, lib, ... }:
-
 {
-  # Fonts
-  #fonts.packages = with pkgs; [
-  #  jetbrains-mono
-  #];
-
-  # # Font`s
-  # fonts = {
-  #   packages = with pkgs; [
-  #     material-design-icons
-  #     font-awesome
-  #     # nerd-fonts.fira-code
-  #     nerd-fonts.jetbrains-mono
-  #   ];
-  # };
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    nerd-fonts.jetbrains-mono
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
-  ];
+  fonts = {
+    # 启用默认字体
+    enableDefaultPackages = true;
+    
+    # 添加自定义字体包
+    packages = with pkgs; [
+      # Times New Roman 包含在 corefonts 中
+      corefonts  # 微软核心字体
+      
+      # JetBrains Mono Nerd Font
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
+    
+    # 设置字体配置
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [ "Times New Roman" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
+      };
+    };
+  };
 }
 

@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      # ../fonts.nix
+      ../fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
