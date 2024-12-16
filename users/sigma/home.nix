@@ -19,6 +19,7 @@
     # tree
     pyprland
     obsidian
+    btop
   ];
   programs.git = {
     enable = true;
