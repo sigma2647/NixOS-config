@@ -27,6 +27,7 @@
 
   outputs = { self, home-manager, nixpkgs, ... } @inputs:
     let
+      hostnames = "foo";
       systems = {
         linux = [ "x86_64-linux" "aarch64-linux" ];
         darwin = [ "aarch64-darwin" "x86_64-darwin" ];
@@ -69,7 +70,10 @@
     nixosConfigurations = {
       nix-home = let
         username = "sigma";
-        specialArgs = {inherit username;};
+        specialArgs = {
+          inherit username
+                  hostnames;
+        };
       in
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
