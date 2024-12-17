@@ -1,24 +1,102 @@
-{ config, pkgs, ... }:
+# { config, pkgs, ... }:
 
+# {
+#   home.packages = with pkgs; [
+#     fcitx5-configtool
+#   ];
+#    xdg.configFile = {
+#     # Rime 的基础配置
+#     "fcitx5/conf/rime.conf".text = ''
+#       # 可以在这里添加 Rime 的特定配置
+#       _variant=
+#       __version=
+#     '';
+#     
+#     # Fcitx5 的配置
+#     "fcitx5/config".text = ''
+#       [Hotkey]
+#       # 切换输入法
+#       TriggerKeys=Alt+space
+#       # 切换至上一个输入法
+#       EnumerateBackwardKeys=
+#       # 轮换输入法
+#       EnumerateForwardKeys=
+#       # 激活输入法
+#       ActivateKeys=
+#       # 取消激活输入法
+#       DeactivateKeys=
+#     '';
+#   };
+# }
+# home-manager 配置
+{ config, pkgs, ... }:
 {
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = 
-    let
-      # 为了不使用默认的 rime-data，改用我自定义的小鹤音形数据，这里需要 override
-      # 参考 https://github.com/NixOS/nixpkgs/blob/e4246ae1e7f78b7087dce9c9da10d28d3725025f/pkgs/tools/inputmethods/fcitx5/fcitx5-rime.nix
-      config.packageOverrides = pkgs: {
-        fcitx5-rime = pkgs.fcitx5-rime.override {rimeDataPkgs = [
-          # 小鹤音形配置，配置来自 flypy.com 官方网盘的鼠须管配置压缩包「小鹤音形“鼠须管”for macOS.zip」
-          # 我仅修改了 default.yaml 文件，将其中的半角括号改为了直角括号「 与 」。
-          ./rime-data-flypy
-        ];};
-      };
-    in
-    with pkgs; [
-        fcitx5-rime
-        fcitx5-configtool
-        fcitx5-chinese-addons
-      ];
+  home.file = {
+    # Rime 基础配置
+    ".local/share/fcitx5/rime/default.custom.yaml".text = ''
+      patch:
+        schema_list:
+          - schema: luna_pinyin          # 朙月拼音
+          - schema: luna_pinyin_simp     # 朙月拼音 简体字模式
+          - schema: double_pinyin        # 自然码双拼
+        
+        menu:
+          page_size: 9                   # 候选词数量
+        
+        # 切换简体/繁体
+        switches:
+          - name: ascii_mode
+            reset: 0                     # 默认英文
+            states: ["中文", "西文"]
+          - name: full_shape
+            states: ["半角", "全角"]
+          - name: simplification
+            reset: 1                     # 默认简体
+            states: ["漢字", "汉字"]
+    '';
+
+    # 朙月拼音配置
+    ".local/share/fcitx5/rime/luna_pinyin.custom.yaml".text = ''
+      patch:
+        switches:
+          - name: ascii_mode
+            reset: 0
+          - name: full_shape
+            reset: 0
+          - name: simplification
+            reset: 1
+        
+        # 载入朙月拼音扩充词库
+        "translator/dictionary": luna_pinyin.extended
+        
+        # 输入双拼时显示对应的全拼
+        "translator/preedit_format": {}
+    '';
+  };
+
+  # fcitx5 基础配置
+  xdg.configFile = {
+    "fcitx5/config".text = ''
+      [Hotkey]
+      # 切换输入法
+      TriggerKeys=Alt+space
+      # 候选词翻页
+      PrevPage=minus
+      NextPage=equal
+      
+      [Behavior]
+      # 默认使用英文
+      ShareInputState=No
+      
+      # 切换输入法时自动切换到第一个输入法
+      DefaultInputMethodState=Yes
+    '';
+    
+    # Rime 在 fcitx5 中的配置
+    "fcitx5/conf/rime.conf".text = ''
+      # 可以在这里添加 Rime 的特定配置
+      PreeditInApplication=True
+      ShowPreeditInApplication=True
+    '';
   };
 }

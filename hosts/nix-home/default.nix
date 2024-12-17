@@ -34,6 +34,23 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
+  
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-chinese-addons
+      fcitx5-gtk
+    ];
+  };
+
+  # 系统级环境变量设置
+  environment.sessionVariables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    SDL_IM_MODULE = "fcitx";
+  };
 
   # 配置 Nix 的 channels
   nixpkgs.config.allowUnfree = true;
