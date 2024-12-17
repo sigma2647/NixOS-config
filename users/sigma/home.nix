@@ -21,6 +21,7 @@
     pyprland
     obsidian
     btop
+    cmatrix
   ];
   programs.git = {
     enable = true;
