@@ -1,33 +1,3 @@
-# { config, pkgs, ... }:
-
-# {
-#   home.packages = with pkgs; [
-#     fcitx5-configtool
-#   ];
-#    xdg.configFile = {
-#     # Rime 的基础配置
-#     "fcitx5/conf/rime.conf".text = ''
-#       # 可以在这里添加 Rime 的特定配置
-#       _variant=
-#       __version=
-#     '';
-#     
-#     # Fcitx5 的配置
-#     "fcitx5/config".text = ''
-#       [Hotkey]
-#       # 切换输入法
-#       TriggerKeys=Alt+space
-#       # 切换至上一个输入法
-#       EnumerateBackwardKeys=
-#       # 轮换输入法
-#       EnumerateForwardKeys=
-#       # 激活输入法
-#       ActivateKeys=
-#       # 取消激活输入法
-#       DeactivateKeys=
-#     '';
-#   };
-# }
 # home-manager 配置
 { config, pkgs, ... }:
 {

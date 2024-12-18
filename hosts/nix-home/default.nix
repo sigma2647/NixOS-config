@@ -38,21 +38,22 @@
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
-
     fcitx5.addons = with pkgs; [
       fcitx5-rime
-      fcitx5-chinese-addons
       fcitx5-gtk
+      rime-data
+      fcitx5-chinese-addons
+      fcitx5-nord            # a color theme
     ];
   };
 
-  # 系统级环境变量设置
-  environment.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    SDL_IM_MODULE = "fcitx";
-  };
+  # # 系统级环境变量设置
+  # environment.sessionVariables = {
+  #   GTK_IM_MODULE = "fcitx";
+  #   QT_IM_MODULE = "fcitx";
+  #   XMODIFIERS = "@im=fcitx";
+  #   SDL_IM_MODULE = "fcitx";
+  # };
 
   # 配置 Nix 的 channels
   nixpkgs.config.allowUnfree = true;
@@ -66,12 +67,16 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;
-		extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
+		extraGroups = [ "wheel" "networkmanager" "docker" ]; # 允许用户使用 sudo
     packages = with pkgs; [              # 默认安装的用户包
       git
       vim
       wget
     ];
+  };
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
   };
 
   # 启用 sudo
@@ -179,8 +184,8 @@
     rofi                       # 可选: 应用启动器
     #dunst                      # 可选: 通知管理器
 
-    #fcitx5
-    #fcitx5-configtool
+
+
 
     networkmanager
     networkmanagerapplet

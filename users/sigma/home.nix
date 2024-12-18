@@ -10,7 +10,7 @@
     ../../home/pyprland
     ../../home/waybar
     ../../home/rofi
-    ../../home/fcitx5
+    # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
 
   ];
@@ -34,4 +34,11 @@
     userName = "sigma2647";
     userEmail = "1169446204@qq.com";
   };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+
 }
