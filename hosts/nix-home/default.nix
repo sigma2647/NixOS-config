@@ -36,7 +36,9 @@
   };
   
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    type = "fcitx5";
+    enable = true;
+
     fcitx5.addons = with pkgs; [
       fcitx5-rime
       fcitx5-chinese-addons
@@ -136,7 +138,6 @@
     pyenv
     direnv
     fzf
-    atuin
 
     ripgrep
 
@@ -158,15 +159,12 @@
 
 
     python3
-    xonsh
     # zed
     # unstable.pywal16
     #
     gcc
     libffi
     openssl
-    zathura
-    lan-mouse
 
 
     stow
@@ -188,7 +186,6 @@
     networkmanagerapplet
     openssh
     home-manager
-    direnv
 
     #gtk2
     #gtk3

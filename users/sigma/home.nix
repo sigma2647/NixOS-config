@@ -23,6 +23,11 @@
     obsidian
     btop
     cmatrix
+    pipx
+    uv
+    xonsh
+    zathura
+    lan-mouse
   ];
   programs.git = {
     enable = true;
