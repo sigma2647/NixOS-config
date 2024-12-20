@@ -10,7 +10,11 @@
       ./hardware-configuration.nix
     ];
 
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
   # Use the systemd-boot EFI boot loader.
+
   boot.loader = {
   efi.efiSysMountPoint = "/boot/efi";
   timeout = 5;
@@ -42,7 +46,7 @@
   nixpkgs.config.allowUnfree = true;    # 允许安装非自由软件
 
   # 用户
-  users.users.sigma = {                   # 将 'xing' 替换为你的用户名
+  users.users.lawrence = {                   # 将 'xing' 替换为你的用户名
     isNormalUser = true;
     createHome = true;
 		extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
@@ -67,9 +71,6 @@
 
   # 防火墙
   networking.firewall.enable = false;
-
-  # 启用打印服务
-  services.printing.enable = true;
 
   # 启用开机自动更新
   # system.autoUpgrade.enable = true;
@@ -104,8 +105,15 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-  system.stateVersion = "24.05"; # Did you read the comment?
+  nix.settings.substituters = [ 
+      "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/"
+      "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirror.sjtu.edu.cn/nix-channels/store/"
+      "https://cache.nixos.org/"
+  ];
+
+  system.stateVersion = "24.11"; # Did you read the comment?
   
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "quiet" "loglevel=3" "nowatchdog" ];
