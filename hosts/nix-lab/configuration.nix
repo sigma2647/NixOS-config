@@ -35,16 +35,11 @@
     keyMap = "us";
   };
 
-  # 基础系统工具
-  environment.systemPackages = with pkgs; [
-    btrfs-progs
-    compsize
-  ];
 
   # 开启 nix flakes
   nix = {
     settings.auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [ "nix-command" "flakes" ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -86,6 +81,9 @@
     wget
     curl
     openssh
+
+    btrfs-progs
+    compsize
   ];
 
    # 启用 SSH 服务
