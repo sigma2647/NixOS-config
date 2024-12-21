@@ -10,6 +10,7 @@
     ../../home/pyprland
     ../../home/waybar
     ../../home/rofi
+    ../../home/tailscale
     # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
 
