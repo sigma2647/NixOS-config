@@ -99,7 +99,7 @@
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "23.11"; # 使用你安装时的 NixOS 版本
+  system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
 
   nix.settings.substituters = lib.mkForce [
     "https://mirrors.ustc.edu.cn/nix-channels/store"
