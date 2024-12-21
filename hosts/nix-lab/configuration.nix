@@ -77,10 +77,13 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
+    
     git
     wget
     curl
     openssh
+    tmux
+    zoxide
 
     btrfs-progs
     compsize

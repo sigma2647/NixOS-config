@@ -78,10 +78,11 @@
   # 系统环境变量
   environment.systemPackages = with pkgs; [
     vim
-    neovim
+    tmux
     git
     wget
     curl
+    zoxide
     #firefox
     #hyprland                   # 安装 Hyprland
     #waybar                     # 可选: Wayland 状态栏
