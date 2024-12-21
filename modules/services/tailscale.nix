@@ -4,7 +4,7 @@
   services.tailscale = {
 	  enable = true;
 	  package = pkgs.tailscale;
-	  useRoutingFeatures = "both;
+	  useRoutingFeatures = "both";
   };
 
   networking.firewall = {
