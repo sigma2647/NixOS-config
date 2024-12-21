@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../fonts.nix
+      ../../modules/services/tailscale.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
