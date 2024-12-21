@@ -84,6 +84,7 @@
     openssh
     tmux
     zoxide
+    stow
 
     btrfs-progs
     compsize
