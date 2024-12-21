@@ -12,4 +12,10 @@
     allowedUDPPorts = [ 41641 ];
     trustedInterfaces = [ "tailscale0" ];
   };
+
+  systemd.services.tailscale = {
+    after = [ "network-online.target"];
+    wants = [ "network-online.target"];
+    wantedBy = [ "multi-user.target"];
+  };
 }

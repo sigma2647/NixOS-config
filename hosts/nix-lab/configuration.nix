@@ -3,6 +3,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/services/tailscale.nix
     ];
 
   # 使用 systemd-boot
