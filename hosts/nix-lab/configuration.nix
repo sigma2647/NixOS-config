@@ -4,6 +4,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/services/tailscale.nix
+      ../../modules/network/host.nix
     ];
 
   # 使用 systemd-boot
