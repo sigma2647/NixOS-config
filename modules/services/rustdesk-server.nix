@@ -3,7 +3,6 @@
 {
   # 开放必要的端口
   networking.firewall = {
-    enable = true;
     allowedTCPPorts = [ 21115 21116 21117 21118 21119 ];
     allowedUDPPorts = [ 21116 ];
   };
