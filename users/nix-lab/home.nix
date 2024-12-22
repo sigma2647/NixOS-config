@@ -23,6 +23,8 @@
     cmatrix
     pipx
     uv
+    yazi
+    lazygit
   ];
   programs.git = {
     enable = true;
