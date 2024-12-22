@@ -40,11 +40,10 @@
     type = "fcitx5";
     enable = true;
     fcitx5.addons = with pkgs; [
-      fcitx5-rime
       fcitx5-gtk
-      rime-data
       fcitx5-chinese-addons
       fcitx5-nord            # a color theme
+      fcitx5-configtool
     ];
   };
 
@@ -198,6 +197,9 @@
     #gtk4
 
     emacs29-pgtk
+
+    fcitx5-rime
+    rime-data
   ];
 
   environment.variables.EDITOR = "nvim";
