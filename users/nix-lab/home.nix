@@ -12,7 +12,7 @@
     # ../../home/rofi
     # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
-
+    ../../home/bash
   ];
 
   home.packages = with pkgs; [
