@@ -4,6 +4,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/services/tailscale.nix
+      ../../modules/services/rustdesk-server.nix
     ];
 
   # 使用 systemd-boot
