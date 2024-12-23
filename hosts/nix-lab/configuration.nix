@@ -90,6 +90,8 @@
 
     btrfs-progs
     compsize
+    python
+    uv
   ];
 
    # 启用 SSH 服务
