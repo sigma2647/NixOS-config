@@ -90,7 +90,7 @@
 
     btrfs-progs
     compsize
-    python
+    python3
     uv
   ];
 
