@@ -13,7 +13,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs/nixos-24.11.git?shallow=1";
 
@@ -25,49 +26,94 @@
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, ... } @inputs:
+  outputs = { self, home-manager, nixpkgs, nixpkgs-unstable, ... } @inputs:
     let
       hostnames = "foo";
       systems = {
         linux = [ "x86_64-linux" "aarch64-linux" ];
         darwin = [ "aarch64-darwin" "x86_64-darwin" ];
       };
+
+      pkgs-stable = import nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      
+      # 创建 overlay 使 unstable 包在全局可用
+      overlay-unstable = final: prev: {
+        unstable = pkgs-unstable;
+      };
+
+
       forAllSystems = f: nixpkgs.lib.genAttrs (systems.linux ++ systems.darwin) f;
-      lib = nixpkgs.lib;
-      users = import ./lib/users.nix;
-      mkHost = { system ? "x86_64-linux"
-               , hostname
-               , username ? users.mainUser
-               , extraModules ? []
-               }: 
-        lib.nixosSystem {
+      # lib = nixpkgs.lib;
+
+      pkgsFor = system: {
+        stable = import nixpkgs-stable {
           inherit system;
-          specialArgs = { 
-            inherit inputs system hostname username; 
-          };
-          modules = [
-            # 基础配置
-            ./hosts/default.nix
-            # 特定主机配置
-            # ./hosts/${hostname}
-            # home-manager
-            home-manager.nixosModules.home-manager
-            {
-              networking.hostName = hostname;
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = inputs // { inherit hostname username; };
-                users.${username} = import ./home/linux/home.nix;
-              };
-            }
-          ] ++ extraModules;
+          config.allowUnfree = true;
         };
+
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+
+      pkgsForSystem = system: import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      lib = {
+        mkHost = { hostname, system, username, extraModules ? [] }: 
+          let
+            # 创建该系统架构的 unstable 包集合
+            unstable = pkgsForSystem system;
+          in nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./hosts/${hostname}/configuration.nix
+              
+              # 注入 unstable 包到模块中
+              ({ pkgs, ... }: {
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    # 将 unstable 包加入到 pkgs 中
+                    unstable = unstable;
+                  })
+                ];
+              })
+              
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.${username} = import ./home/${hostname}.nix;
+              }
+              
+              ./modules/common.nix
+              ./hosts/${hostname}/hardware-configuration.nix
+            ] ++ extraModules;
+            
+            specialArgs = { 
+              inherit inputs system username unstable; 
+            };
+          };
+      };
+
     in
   {
 
     # 配置 NixOS
     nixosConfigurations = {
+      "nix-home" = lib.mkHost "nix-home";
+
       nix-home = let
         username = "sigma";
         specialArgs = {
