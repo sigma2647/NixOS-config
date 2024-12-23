@@ -78,17 +78,17 @@
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
-        modules = [
-          ./hosts/nix-home
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
+          modules = [
+            ./hosts/nix-home
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
 
-            home-manager.extraSpecialArgs = inputs // specialArgs;
-            home-manager.users.${username} = import ./users/${username}/home.nix;
-          }
+              home-manager.extraSpecialArgs = inputs // specialArgs;
+              home-manager.users.${username} = import ./users/${username}/home.nix;
+            }
         ];
       };
 
