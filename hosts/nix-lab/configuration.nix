@@ -66,6 +66,7 @@
   # 用户
   users.users.lawrence = {                   # 将 'xing' 替换为你的用户名
     isNormalUser = true;
+    shell = pkgs.zsh;
     createHome = true;
 		extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
     packages = with pkgs; [              # 默认安装的用户包
@@ -73,6 +74,12 @@
       wget
       htop
     ];
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
   };
 
   # 系统环境变量

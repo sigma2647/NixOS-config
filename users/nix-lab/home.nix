@@ -25,6 +25,9 @@
     uv
     yazi
     lazygit
+    starship
+    cachix
+    devenv
   ];
   programs.git = {
     enable = true;

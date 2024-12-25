@@ -2,18 +2,32 @@
   description = "Lawrence's config";
 
   nixConfig = {
+
+    experimental-features = [ "nix-command" "flakes" ];
+
     substituters = [
-      "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/"
-      "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable"
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://mirror.sjtu.edu.cn/nix-channels/store/"
-      "https://cache.nixos.org/"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
+      "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
+      "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
+      "https://nix-community.cachix.org"
     ];
     trusted-users = [ "root" "lawrence" "sigma" ];
+
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
   };
+
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/nixexprs.tar.xz";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs/nixos-24.11.git?shallow=1";
@@ -24,6 +38,8 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cachix.url = "github:cachix/cachix";
   };
 
   outputs = { self, home-manager, nixpkgs, nixpkgs-unstable, ... } @inputs:
@@ -34,85 +50,18 @@
         darwin = [ "aarch64-darwin" "x86_64-darwin" ];
       };
 
-      pkgs-stable = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      
-      # 创建 overlay 使 unstable 包在全局可用
-      overlay-unstable = final: prev: {
-        unstable = pkgs-unstable;
-      };
-
 
       forAllSystems = f: nixpkgs.lib.genAttrs (systems.linux ++ systems.darwin) f;
-      # lib = nixpkgs.lib;
 
-      pkgsFor = system: {
-        stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
+      lib = nixpkgs.lib;
 
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
-
-      pkgsForSystem = system: import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      lib = {
-        mkHost = { hostname, system, username, extraModules ? [] }: 
-          let
-            # 创建该系统架构的 unstable 包集合
-            unstable = pkgsForSystem system;
-          in nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/${hostname}/configuration.nix
-              
-              # 注入 unstable 包到模块中
-              ({ pkgs, ... }: {
-                nixpkgs.overlays = [
-                  (final: prev: {
-                    # 将 unstable 包加入到 pkgs 中
-                    unstable = unstable;
-                  })
-                ];
-              })
-              
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.${username} = import ./home/${hostname}.nix;
-              }
-              
-              ./modules/common.nix
-              ./hosts/${hostname}/hardware-configuration.nix
-            ] ++ extraModules;
-            
-            specialArgs = { 
-              inherit inputs system username unstable; 
-            };
-          };
-      };
 
     in
   {
 
     # 配置 NixOS
     nixosConfigurations = {
-      "nix-home" = lib.mkHost "nix-home";
+      # "nix-home" = lib.mkHost "nix-home";
 
       nix-home = let
         username = "sigma";
@@ -160,6 +109,7 @@
             home-manager.extraSpecialArgs = inputs // specialArgs;
             home-manager.users.${username} = import ./users/nix-lab/home.nix;
           }
+
         ];
       };
       jy-alien = let
