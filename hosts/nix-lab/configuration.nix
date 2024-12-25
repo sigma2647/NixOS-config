@@ -42,6 +42,7 @@
   nix = {
     settings.auto-optimise-store = true;
     settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.trusted-users = ["root" "sigma" "lawrence"];
     gc = {
       automatic = true;
       dates = "weekly";
