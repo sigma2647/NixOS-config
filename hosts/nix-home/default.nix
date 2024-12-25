@@ -134,8 +134,6 @@
 
     fastfetch
 
-    texlive.combined.scheme-full
-    texstudio
     #(texlive.combine { inherit (texlive) scheme-full; })
     zsh
     starship

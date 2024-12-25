@@ -28,6 +28,8 @@
     xonsh
     zathura
     lan-mouse
+    texlive.combined.scheme-full
+    texstudio
   ];
   programs.git = {
     enable = true;
