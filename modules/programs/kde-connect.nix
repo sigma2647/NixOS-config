@@ -9,6 +9,9 @@
 
   environment.systemPackages = with pkgs; [
     kdeconnectgtk  # 包含indicator
+    libnotify
+    kdeconnect
+    mako
   ];
 }
 
