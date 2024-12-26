@@ -1,3 +1,4 @@
+{ config, pkgs, ...}:
 {
   programs.kdeconnect.enable = true;
   networking.firewall.allowedTCPPortRanges = [
@@ -8,9 +9,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    kdeconnectgtk  # 包含indicator
     libnotify
-    kdeconnect
+    plasma5Packages.kdeconnect-kde
     mako
   ];
 }

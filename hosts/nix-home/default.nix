@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ../fonts.nix
       ../../modules/services/tailscale.nix
+      ../../modules/programs/kde-connect.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

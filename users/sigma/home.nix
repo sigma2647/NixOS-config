@@ -20,7 +20,7 @@
     bat
     # tree
     pyprland
-    obsidian
+    # obsidian
     btop
     cmatrix
     pipx
