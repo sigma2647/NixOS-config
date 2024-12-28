@@ -69,7 +69,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;
-		extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
+    extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
     packages = with pkgs; [              # 默认安装的用户包
       vim
       wget
