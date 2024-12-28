@@ -40,9 +40,12 @@
     };
 
     cachix.url = "github:cachix/cachix";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
-  outputs = { self, home-manager, nixpkgs, nixpkgs-unstable, ... } @inputs:
+  outputs = { self, home-manager, nixpkgs, nixpkgs-unstable, ghostty, ... } @inputs:
     let
       hostnames = "foo";
       systems = {
