@@ -58,6 +58,32 @@
 
       lib = nixpkgs.lib;
 
+      # system = "x86_64-linux";
+      # pkgs = nixpkgs.legacyPackages.${system}; # 使用 unstable
+      # 
+      # lib = {
+      #   mkHost = hostname: nixpkgs-unstable.lib.nixosSystem {
+      #     inherit system;
+      #     modules = [
+      #       ./hosts/${hostname}/configuration.nix
+      #       
+      #       home-manager.nixosModules.home-manager
+      #       {
+      #         home-manager.useGlobalPkgs = true;
+      #         home-manager.useUserPackages = true;
+      #         home-manager.users.sigma = import ./home/${hostname}.nix;
+      #         home-manager.users.${username} = import ./users/${username}/home.nix;
+      #         # 添加这个来传递 inputs
+      #         _module.args.inputs = inputs;
+      #       }
+      #       
+      #       ./modules/common.nix
+      #       ./hosts/${hostname}/hardware-configuration.nix
+      #     ];
+      #     specialArgs = { inherit inputs; }; # 确保这行存在
+      #   };
+      # };
+
 
     in
   {
@@ -70,7 +96,8 @@
         username = "sigma";
         specialArgs = {
           inherit username
-                  hostnames;
+                  hostnames
+                  inputs;
         };
       in
         nixpkgs.lib.nixosSystem {
@@ -86,6 +113,7 @@
 
               home-manager.extraSpecialArgs = inputs // specialArgs;
               home-manager.users.${username} = import ./users/${username}/home.nix;
+              _module.args.inputs = inputs;
             }
         ];
       };

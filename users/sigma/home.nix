@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ config, pkgs, inputs, ... }:
+
+{
 # { pkgs, hostnames, ... }: {
   home.stateVersion = "24.11"; # 请根据实际版本设置
   imports = [
@@ -30,6 +32,7 @@
     lan-mouse
     texlive.combined.scheme-full
     texstudio
+    inputs.ghostty.packages.x86_64-linux.default
   ];
   programs.git = {
     enable = true;
