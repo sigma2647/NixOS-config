@@ -16,7 +16,7 @@ pkgs,
       ../../modules/programs/kde-connect.nix
       ../../modules/system/time.nix
       ../../modules/system/hardware.nix
-      ../../modules/system/nvidia.nix
+      # ../../modules/system/nvidia.nix
       ../../modules/virtualisation.nix
     ];
 

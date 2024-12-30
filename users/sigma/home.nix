@@ -12,7 +12,7 @@
     ../../home/pyprland
     ../../home/waybar
     ../../home/rofi
-    ../../home/fcitx5
+    # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
 
   ];
