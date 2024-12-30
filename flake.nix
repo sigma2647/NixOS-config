@@ -104,7 +104,7 @@
           inherit specialArgs;
           system = "x86_64-linux";
           modules = [
-            ./hosts/nix-home
+            ./hosts/nix-home/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
