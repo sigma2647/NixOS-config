@@ -6,8 +6,8 @@
   imports = [
     ../../home/core.nix
     ../../home/shell
-    ../../home/lf
-    ../../home/yazi/yazi.nix
+    ../../home/cli/lf
+    ../../home/cli/yazi
     ../../home/kitty
     ../../home/pyprland
     ../../home/waybar
