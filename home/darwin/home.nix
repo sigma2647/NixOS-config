@@ -50,6 +50,6 @@
   # programs.fish.enable = true;
   # programs.fish.enable = true;
   imports = [
-    ../yazi/yazi.nix
+    ../cli/yazi
   ];
 }

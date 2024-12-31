@@ -43,7 +43,7 @@
 
   # programs.fish.enable = true;
   imports = [
-    ../yazi/yazi.nix
+    ../cli/yazi
   ];
 
 }
