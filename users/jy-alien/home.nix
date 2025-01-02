@@ -30,8 +30,8 @@
     xonsh
     zathura
     lan-mouse
-    texlive.combined.scheme-full
-    texstudio
+    # texlive.combined.scheme-full
+    # texstudio
     # inputs.ghostty.packages.x86_64-linux.default
   ];
   programs.git = {

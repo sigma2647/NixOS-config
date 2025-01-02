@@ -145,20 +145,26 @@
       };
       jy-alien = let
         username = "sigma";
-        specialArgs = {inherit username;};
+        specialArgs = {
+          inherit username
+                  hostnames;
+        };
       in
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
         modules = [
-          ./hosts/jy-alien
+          ./hosts/jy-alien/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            home-manager.backupFileExtension = "backup";
+
             home-manager.extraSpecialArgs = inputs // specialArgs;
-            home-manager.users.${username} = import ./users/${username}/home.nix;
+            home-manager.users.${username} = import ./users/jy-alien/home.nix;
+            _module.args.inputs = inputs;
           }
         ];
       };
