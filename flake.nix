@@ -147,7 +147,8 @@
         username = "sigma";
         specialArgs = {
           inherit username
-                  hostnames;
+                  hostnames
+                  inputs;
         };
       in
         nixpkgs.lib.nixosSystem {
