@@ -38,6 +38,7 @@
     pdm
     uv
     pipx
+    fastfetch
 
     zathura
   ];
