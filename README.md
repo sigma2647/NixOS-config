@@ -9,7 +9,7 @@ nix flake init -t https://code.m3tam3re.com/m3tam3re/nix-flake-templates/archive
 
 ### TODO
 fd
-ripgreb
+ripgrep
 
 
 
