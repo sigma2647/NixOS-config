@@ -3,9 +3,12 @@
 
   nixConfig = {
 
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
-    substituters = [
+    extra-substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
       "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
@@ -19,8 +22,8 @@
     ];
 
     trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
@@ -32,20 +35,21 @@
 
     # nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs/nixos-24.11.git?shallow=1";
 
-    # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/nixexprs.tar.xz";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cachix.url = "github:cachix/cachix";
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, nixpkgs-unstable, ghostty, ... } @inputs:
+  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ghostty, ... }:
     let
       hostnames = "foo";
       systems = {
