@@ -32,7 +32,7 @@
     lan-mouse
     texlive.combined.scheme-full
     texstudio
-    inputs.jkghostty.packages.x86_64-linux.default
+    inputs.ghostty.packages.x86_64-linux.default
     circumflex
   ];
   programs.git = {
