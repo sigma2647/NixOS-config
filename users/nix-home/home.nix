@@ -34,6 +34,7 @@
     texstudio
     inputs.ghostty.packages.x86_64-linux.default
     circumflex
+    cachix
   ];
   programs.git = {
     enable = true;
