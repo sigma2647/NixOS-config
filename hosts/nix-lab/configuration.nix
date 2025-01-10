@@ -5,6 +5,8 @@
       ./hardware-configuration.nix
       ../../modules/services/tailscale.nix
       ../../modules/network/host.nix
+      ../../modules/services/samba.nix
+      ../../modules/services/openssh.nix
     ];
 
   # 使用 systemd-boot
@@ -106,7 +108,7 @@
   services.openssh.enable = true;
 
   # 防火墙
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
