@@ -28,6 +28,7 @@
     starship
     cachix
     devenv
+    traceroute
   ];
   programs.git = {
     enable = true;

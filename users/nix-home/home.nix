@@ -35,6 +35,7 @@
     inputs.ghostty.packages.x86_64-linux.default
     circumflex
     cachix
+    traceroute
   ];
   programs.git = {
     enable = true;
