@@ -36,6 +36,13 @@ pkgs,
     };
   };
 
+
+  documentation.enable = true;
+  documentation.dev.enable = true;
+  documentation.man.enable = true;
+
+  # gtk = {}
+
   networking.hostName = "nix-home"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -88,9 +95,9 @@ pkgs,
 
   # 启用 sudo
   security.sudo.enable = true;
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
   # services.xserver.videoDrivers = [ "nvidia" ];
+  services.getty.autologinUser = "sigma";
 
   #services.displayManager.sddm.enable = true;
   #services.displayManager.startx.enable = true;
@@ -130,7 +137,7 @@ pkgs,
 
   programs.hyprland = {
     enable = true;
-    # xwayland.enable = true;
+    xwayland.enable = true;
   };
 
   programs.zsh = {
@@ -142,8 +149,17 @@ pkgs,
   security.rtkit.enable = true;
 
   # enable gvfs for new morden function
-  services.tumbler.enable = true;
   services.gvfs.enable = true;
+
+  services.tumbler.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+            thunar-archive-plugin
+            thunar-volman
+            thunar-media-tags-plugin
+    ];
+  };
 
   services.pipewire = {
     enable = true;
