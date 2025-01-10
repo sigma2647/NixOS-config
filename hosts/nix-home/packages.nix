@@ -81,5 +81,6 @@
     fcitx5-rime
     rime-data
     qemu
+    openvpn
   ];
 }
