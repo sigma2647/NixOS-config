@@ -82,6 +82,17 @@
     extraGroups = [ "wheel" "networkmanager" "docker" "samba"];
   };
 
+  # 启用 OpenSSH 后台服务
+  services.openssh = {
+    enable = true;
+    settings = {
+      X11Forwarding = true;
+      # PermitRootLogin = "no"; # disable root login
+      # PasswordAuthentication = false; # disable password login
+    };
+    # openFirewall = true;
+  };
+
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
 
