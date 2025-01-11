@@ -39,12 +39,16 @@
     btrfs-progs
     compsize
     git
+    vim
     neovim
     wget
 
     networkmanager
     networkmanagerapplet
     openssh
+    tmux
+    curl
+    zoxide
   ];
 
   # 开启 nix flakes
