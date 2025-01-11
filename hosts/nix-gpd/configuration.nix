@@ -37,7 +37,7 @@
     btrfs-progs
     compsize
     git
-    nvim
+    neovim
     wget
 
     networkmanager
