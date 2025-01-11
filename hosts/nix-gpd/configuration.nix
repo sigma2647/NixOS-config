@@ -42,6 +42,7 @@
     vim
     neovim
     wget
+    stow
 
     networkmanager
     networkmanagerapplet
