@@ -50,6 +50,9 @@
     tmux
     curl
     zoxide
+
+    python3
+    uv
   ];
 
   # 开启 nix flakes
