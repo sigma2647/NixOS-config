@@ -40,12 +40,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cachix.url = "github:cachix/cachix";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
+    # ghostty = {
+    #   url = "github:ghostty-org/ghostty";
+    # };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ghostty, ... }:
+  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ... }:
     let
       hostnames = "foo";
       systems = {

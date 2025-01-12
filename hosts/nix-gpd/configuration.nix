@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }: {
   # 导入硬件配置
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/services/tailscale.nix
+  ];
 
   # 使用 systemd-boot
   boot.loader.systemd-boot.enable = true;
@@ -53,6 +56,10 @@
 
     python3
     uv
+    ghostty
+    rofi-wayland
+    rg
+    fd
   ];
 
   # 开启 nix flakes
@@ -82,9 +89,22 @@
   # 添加你的用户
   users.users.lawrence = {
     isNormalUser = true;
+    shell = pkgs.zsh;
+    createHome = true;
     extraGroups = [ "wheel" "networkmanager" "docker" "samba"];
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  
   # 启用 OpenSSH 后台服务
   services.openssh = {
     enable = true;

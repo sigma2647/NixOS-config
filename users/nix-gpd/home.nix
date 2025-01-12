@@ -4,11 +4,11 @@
 # { pkgs, hostnames, ... }: {
   home.stateVersion = "24.11"; # 请根据实际版本设置
   imports = [
-    # ../../home/core.nix
-    # ../../home/shell
-    # ../../home/cli/lf
-    # ../../home/cli/yazi
-    # ../../home/kitty
+    ../../home/core.nix
+    ../../home/shell
+    ../../home/cli/lf
+    ../../home/cli/yazi
+    ../../home/kitty
     # ../../home/pyprland
     # ../../home/waybar
     # ../../home/rofi
@@ -20,22 +20,26 @@
   home.packages = with pkgs; [
     tealdeer
     bat
-    # tree
+    tree
     # pyprland
     # # obsidian
-    # btop
-    # cmatrix
-    # pipx
-    # uv
+    btop
+    cmatrix
+    pipx
+    uv
     # xonsh
     # zathura
     # lan-mouse
     # texlive.combined.scheme-full
     # texstudio
-    # inputs.ghostty.packages.x86_64-linux.default
     # circumflex
-    # cachix
-    # traceroute
+    cachix
+    traceroute
+    starship
+    fastfetch
+    # kitty
+    ghostty
+    lazygit
   ];
   programs.git = {
     enable = true;

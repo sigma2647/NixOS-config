@@ -63,10 +63,18 @@
   };
 
   # 添加你的用户
-  users.users.your-username = {
+  users.users.lawrence = {
     isNormalUser = true;
+    shell = pkgs.zsh;
+    createHome = true;
     extraGroups = [ "wheel" "networkmanager" ];
     initialPassword = "password"; # 首次登录后要改
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
   };
 
   # 允许非自由软件（如果需要）
