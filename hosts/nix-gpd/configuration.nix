@@ -58,7 +58,7 @@
     uv
     ghostty
     rofi-wayland
-    rg
+    ripgrep
     fd
   ];
 
