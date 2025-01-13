@@ -32,7 +32,7 @@
     lan-mouse
     texlive.combined.scheme-full
     texstudio
-    inputs.ghostty.packages.x86_64-linux.default
+    ghostty
     circumflex
     cachix
     traceroute
