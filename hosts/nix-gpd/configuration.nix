@@ -60,6 +60,7 @@
     rofi-wayland
     ripgrep
     fd
+    swww
   ];
 
   # 开启 nix flakes
