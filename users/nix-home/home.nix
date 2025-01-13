@@ -27,7 +27,7 @@
     cmatrix
     pipx
     uv
-    xonsh
+    # xonsh
     zathura
     lan-mouse
     texlive.combined.scheme-full
