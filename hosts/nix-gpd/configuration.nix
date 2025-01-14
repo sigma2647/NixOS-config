@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   # 导入硬件配置
   imports = [
-    #../fonts.nix
+    ../fonts.nix
     ./packages.nix
     ./hardware-configuration.nix
     ../../modules/services/tailscale.nix
