@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
   # 导入硬件配置
   imports = [
+    #../fonts.nix
     ./packages.nix
     ./hardware-configuration.nix
     ../../modules/services/tailscale.nix
@@ -92,6 +93,12 @@
     # openFirewall = true;
   };
 
+
+
+  #--------
+  # consider move to module
+  services.flatpak.enable = true;
+ 
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
 
