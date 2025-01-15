@@ -5,6 +5,7 @@
     ./packages.nix
     ./hardware-configuration.nix
     ../../modules/services/tailscale.nix
+    ../../modules/services/flatpak
   ];
 
   # 使用 systemd-boot
@@ -97,7 +98,6 @@
 
   #--------
   # consider move to module
-  services.flatpak.enable = true;
  
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
