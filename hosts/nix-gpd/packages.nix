@@ -25,5 +25,8 @@
     swww
 
     firefox
+
+
+    file # should bulitin
   ];
 }
