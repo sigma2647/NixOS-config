@@ -6,6 +6,8 @@
     ./hardware-configuration.nix
     ../../modules/services/tailscale.nix
     ../../modules/services/flatpak
+    ../../modules/system/time.nix
+    ../../modules/network/host.nix
   ];
 
   # 使用 systemd-boot
@@ -55,8 +57,6 @@
     '';
   };
 
-  # 设置时区
-  time.timeZone = "Asia/Shanghai";
 
   # 设置网络
   networking = {
@@ -69,7 +69,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "samba"];
+    extraGroups = [ "wheel" "networkmanagr" "docker" "samba"];
   };
 
   programs.zsh = {
@@ -95,6 +95,12 @@
   };
 
 
+  services.getty.autologinUser = "lawrence";
+  services.xserver.enable = true;
+
+  documentation.enable = true;
+  documentation.dev.enable = true;
+  documentation.man.enable = true;
 
   #--------
   # consider move to module

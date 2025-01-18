@@ -28,5 +28,6 @@
 
 
     file # should bulitin
+    gcc
   ];
 }
