@@ -8,6 +8,7 @@
     ../../modules/services/flatpak
     ../../modules/system/time.nix
     ../../modules/network/host.nix
+    ../../modules/docker.nix
   ];
 
   # 使用 systemd-boot

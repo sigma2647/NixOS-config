@@ -8,18 +8,18 @@ pkgs,
 }:
 
 {
-  imports =
-    [
-      ../fonts.nix
-      ./packages.nix
-      ./hardware-configuration.nix
-      ../../modules/services/tailscale.nix
-      ../../modules/programs/kde-connect.nix
-      ../../modules/system/time.nix
-      ../../modules/system/hardware.nix
-      # ../../modules/system/nvidia.nix
-      ../../modules/virtualisation.nix
-    ];
+  imports = [
+    ../fonts.nix
+    ./packages.nix
+    ./hardware-configuration.nix
+    ../../modules/services/tailscale.nix
+    ../../modules/programs/kde-connect.nix
+    ../../modules/system/time.nix
+    ../../modules/system/hardware.nix
+    # ../../modules/system/nvidia.nix
+    ../../modules/virtual.nix
+    ../../modules/docker.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
