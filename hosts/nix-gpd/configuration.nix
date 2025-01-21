@@ -103,8 +103,10 @@
   documentation.dev.enable = true;
   documentation.man.enable = true;
 
+
   #--------
   # consider move to module
+  programs.nix-ld.enable = true;
  
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;

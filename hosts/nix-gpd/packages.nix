@@ -20,6 +20,7 @@
     python3Packages.numpy
     blas
     lapack
+    stdenv.cc.cc.lib
 
     uv
     ghostty
@@ -35,5 +36,6 @@
     gcc
     libz
     gcc-unwrapped
+
   ];
 }
