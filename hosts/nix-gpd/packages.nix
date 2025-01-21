@@ -17,6 +17,10 @@
     zoxide
 
     python3
+    python3Packages.numpy
+    blas
+    lapack
+
     uv
     ghostty
     rofi-wayland
@@ -29,5 +33,7 @@
 
     file # should bulitin
     gcc
+    libz
+    gcc-unwrapped
   ];
 }
