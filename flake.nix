@@ -9,6 +9,7 @@
     ];
 
     extra-substituters = [
+      "https://mirrors.cerne.edu.cn/nix-channels/store"  # 中科大
       "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
       "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
