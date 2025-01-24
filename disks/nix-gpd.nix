@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/nvme0n0";  # 替换为你的磁盘设备
+        device = "/dev/nvme0n1";  # 替换为你的磁盘设备
         type = "disk";
         content = {
           type = "gpt";
