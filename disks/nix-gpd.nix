@@ -30,20 +30,18 @@
             root = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "btrfs";
-                mountpoint = "/";
+                type = "btrfs";
                 mountOptions = [ "compress=zstd" "ssd" "noatime" ];  # 启用压缩和 SSD 优化
 
                 # Btrfs 子卷配置
                 subvolumes = {
-                  "@nix" = {
+                  "/nix" = {
                     mountpoint = "/nix";
                   };
-                  "@home" = {
+                  "/home" = {
                     mountpoint = "/home";
                   };
-                  "@root" = {
+                  "/root" = {
                     mountpoint = "/";
                   };
                 };
