@@ -1,0 +1,1 @@
+export NIX_CONFIG="substituters = https://mirror.sjtu.edu.cn/nix-channels/store"
