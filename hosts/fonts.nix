@@ -4,7 +4,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       corefonts
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       font-awesome
       maple-mono  # Use maple-mono package instead
     ];
