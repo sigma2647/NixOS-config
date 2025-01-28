@@ -96,7 +96,7 @@
   };
 
 
-  services.getty.autologinUser = "lawrence";
+  # services.getty.autologinUser = "lawrence";
   services.xserver.enable = true;
 
   documentation.enable = true;
