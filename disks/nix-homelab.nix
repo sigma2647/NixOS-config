@@ -28,18 +28,19 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                mountOptions = [ "compress=zstd" "noatime" ];  # 启用压缩和 SSD 优化
 
                 # Btrfs 子卷配置
-                subvolumes = {
-                  "/nix" = {
-                    mountpoint = "/nix";
+                subvolumes = 0
+                  "/root" = {
+                    mountpoint = "/";
                   };
                   "/home" = {
                     mountpoint = "/home";
+                    mountOptions = [ "compress=zstd" ];  # 启用压缩和 SSD 优化
                   };
-                  "/root" = {
-                    mountpoint = "/";
+                  "/nix" = {
+                    mountpoint = "/nix";
+                    mountOptions = [ "compress=zstd" "noatime" ];  # 启用压缩和 SSD 优化
                   };
                 };
               };
