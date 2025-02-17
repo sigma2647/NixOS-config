@@ -6,7 +6,7 @@
         type = "disk";
         content = {
           type = "gpt";
-          partitions = {
+          partitions = 0
             # EFI 引导分区
             ESP = {
               type = "EF00";  # EFI 分区类型
@@ -28,19 +28,24 @@
               size = "100%";
               content = {
                 type = "btrfs";
+                mountOptions = [ 
+                  "compress=zstd"  # 启用透明压缩
+                  "noatime"        # 减少写入
+                ];
 
                 # Btrfs 子卷配置
                 subvolumes = 0
                   "/root" = {
                     mountpoint = "/";
+                    mountOptions = [ "noatime" ];
                   };
                   "/home" = {
                     mountpoint = "/home";
-                    mountOptions = [ "compress=zstd" ];  # 启用压缩和 SSD 优化
+                    mountOptions = [ "noatime" ];
                   };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [ "compress=zstd" "noatime" ];  # 启用压缩和 SSD 优化
+                    mountOptions = [ "noatime" ];
                   };
                 };
               };
