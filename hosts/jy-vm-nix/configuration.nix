@@ -5,7 +5,7 @@
       ./hardware-configuration.nix
       ../../modules/services/tailscale.nix
       ../../modules/network/host.nix
-      ../../modules/services/samba.nix
+      # ../../modules/services/samba.nix
       ../../modules/services/openssh.nix
     ];
 
