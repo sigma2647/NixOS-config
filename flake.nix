@@ -144,6 +144,31 @@
         ];
       };
 
+      jy-vm-nix = let
+        username = "lawrence";
+        specialArgs = {
+          inherit username
+                  hostnames;
+        };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+        modules = [
+          ./hosts/jy-vm-nix/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+
+            home-manager.extraSpecialArgs = inputs // specialArgs;
+            home-manager.users.${username} = import ./users/jy-vm-nix/home.nix;
+          }
+
+        ];
+      };
 
       nix-lab = let
         username = "lawrence";
