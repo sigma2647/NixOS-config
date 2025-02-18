@@ -6,7 +6,7 @@
         type = "disk";
         content = {
           type = "gpt";
-          partitions = 0;
+          partitions = {
             # EFI 引导分区
             ESP = {
               type = "EF00";  # EFI 分区类型
@@ -35,20 +35,21 @@
 
                 # Btrfs 子卷配置
                 subvolumes = 0;
-                  "/root" = {
-                    mountpoint = "/";
-                    mountOptions = [ "noatime" ];
-                  };
-                  "/home" = {
-                    mountpoint = "/home";
-                    mountOptions = [ "noatime" ];
-                  };
-                  "/nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = [ "noatime" ];
-                  };
+                "/root" = {
+                  mountpoint = "/";
+                  mountOptions = [ "noatime" ];
+                };
+                "/home" = {
+                  mountpoint = "/home";
+                  mountOptions = [ "noatime" ];
+                };
+                "/nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = [ "noatime" ];
+                };
               };
             };
+          };
         };
       };
     };
