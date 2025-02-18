@@ -61,7 +61,7 @@
 
   # 设置网络
   networking = {
-    hostName = "nix-lab"; # 改成你想要的主机名
+    hostName = "jy-vm-nix"; # 改成你想要的主机名
     networkmanager.enable = true;
   };
 
