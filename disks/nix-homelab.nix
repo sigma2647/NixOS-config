@@ -34,18 +34,19 @@
                 ];
 
                 # Btrfs 子卷配置
-                subvolumes = 0;
-                "/root" = {
-                  mountpoint = "/";
-                  mountOptions = [ "noatime" ];
-                };
-                "/home" = {
-                  mountpoint = "/home";
-                  mountOptions = [ "noatime" ];
-                };
-                "/nix" = {
-                  mountpoint = "/nix";
-                  mountOptions = [ "noatime" ];
+                subvolumes = {
+                  "/root" = {
+                    mountpoint = "/";
+                    mountOptions = [ "noatime" ];
+                  };
+                  "/home" = {
+                    mountpoint = "/home";
+                    mountOptions = [ "noatime" ];
+                  };
+                  "/nix" = {
+                    mountpoint = "/nix";
+                    mountOptions = [ "noatime" ];
+                  };
                 };
               };
             };
