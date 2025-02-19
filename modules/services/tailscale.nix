@@ -19,6 +19,7 @@
     package = pkgs-unstable.tailscale;
     useRoutingFeatures = "both";
   };
+  services.nftables.enable = true;
 
   networking.firewall = {
     checkReversePath = "loose";
