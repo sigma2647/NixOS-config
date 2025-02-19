@@ -9,7 +9,7 @@
     ];
 
     extra-substituters = [
-      "https://mirrors.cernet.edu.cn/nix-channels/store"  # 中科大
+      "https://mirrors.cerne.edu.cn/nix-channels/store"  # 中科大
       "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
       "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
@@ -48,63 +48,43 @@
 
   outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ... }:
     let
-      supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
-      forAllSystems = nixpkgs-unstable.lib.genAttrs supportedSystems;
-      
-      pkgsBySystem = forAllSystems (system: {
-        stable = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      });
-
-
-
-     mkSystem = { hostname, username, system ? "x86_64-linux", extraModules ? [] }: 
-      let
-        specialArgs = {
-          inherit username hostname inputs;
-          pkgs = pkgsBySystem.${system}.stable;
-          pkgs-unstable = pkgsBySystem.${system}.unstable;
-        };
-      in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;  # 使用上面定义的 specialArgs
-        modules = [
-          ./hosts/${hostname}/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            nix.settings = {
-              auto-optimise-store = true;
-              experimental-features = [ "nix-command" "flakes" ];
-              # 并行构建任务数
-              max-jobs = "auto";
-              # 构建时使用硬链接而不是复制
-              use-case-hack = true;
-            };
-            
-            # 支持非 NixOS 编译的程序
-            programs.nix-ld.enable = true;
-
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              extraSpecialArgs = inputs // specialArgs;
-              users.${username} = import ./users/${hostname}/home.nix;
-            };
-          }
-        ] ++ extraModules;
+      hostnames = "foo";
+      systems = {
+        linux = [ "x86_64-linux" "aarch64-linux" ];
+        darwin = [ "aarch64-darwin" "x86_64-darwin" ];
       };
 
 
-      hostnames = "foo";
+      forAllSystems = f: nixpkgs.lib.genAttrs (systems.linux ++ systems.darwin) f;
+
       lib = nixpkgs.lib;
+
+      # system = "x86_64-linux";
+      # pkgs = nixpkgs.legacyPackages.${system}; # 使用 unstable
+      # 
+      # lib = {
+      #   mkHost = hostname: nixpkgs-unstable.lib.nixosSystem {
+      #     inherit system;
+      #     modules = [
+      #       ./hosts/${hostname}/configuration.nix
+      #       
+      #       home-manager.nixosModules.home-manager
+      #       {
+      #         home-manager.useGlobalPkgs = true;
+      #         home-manager.useUserPackages = true;
+      #         home-manager.users.sigma = import ./home/${hostname}.nix;
+      #         home-manager.users.${username} = import ./users/${username}/home.nix;
+      #         # 添加这个来传递 inputs
+      #         _module.args.inputs = inputs;
+      #       }
+      #       
+      #       ./modules/common.nix
+      #       ./hosts/${hostname}/hardware-configuration.nix
+      #     ];
+      #     specialArgs = { inherit inputs; }; # 确保这行存在
+      #   };
+      # };
+
 
     in
   {
@@ -164,36 +144,31 @@
         ];
       };
 
-      jy-vm-nix = mkSystem {
-        hostname = "jy-vm-nix";
+      jy-vm-nix = let
         username = "lawrence";
+        specialArgs = {
+          inherit username
+                  hostnames;
+        };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+        modules = [
+          ./hosts/jy-vm-nix/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+
+            home-manager.extraSpecialArgs = inputs // specialArgs;
+            home-manager.users.${username} = import ./users/jy-vm-nix/home.nix;
+          }
+
+        ];
       };
-
-      # jy-vm-nix = let
-      #   username = "lawrence";
-      #   specialArgs = {
-      #     inherit username
-      #             hostnames;
-      #   };
-      # in
-      #   nixpkgs.lib.nixosSystem {
-      #     inherit specialArgs;
-      #     system = "x86_64-linux";
-      #   modules = [
-      #     ./hosts/jy-vm-nix/configuration.nix
-
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.backupFileExtension = "backup";
-
-      #       home-manager.extraSpecialArgs = inputs // specialArgs;
-      #       home-manager.users.${username} = import ./users/jy-vm-nix/home.nix;
-      #     }
-
-      #   ];
-      # };
 
       nix-lab = let
         username = "lawrence";
