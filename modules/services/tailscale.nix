@@ -17,7 +17,7 @@
   services.tailscale = {
     enable = true;
     package = pkgs-unstable.tailscale;
-    useRoutingFeatures = "both";
+    useRoutingFeatures = "nftables";
   };
 
   networking.firewall = {
