@@ -74,10 +74,11 @@
       in
       nixpkgs.lib.nixosSystem {
         inherit system;
-        inherit specialArgs;  # 使用上面定义的 specialArgs
+        inherit specialArgs;
         modules = [
           ./hosts/${hostname}/configuration.nix
           home-manager.nixosModules.home-manager
+          ./modules/base.nix
           {
             nix.settings = {
               auto-optimise-store = true;
