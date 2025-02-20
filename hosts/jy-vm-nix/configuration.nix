@@ -6,6 +6,7 @@
       ../../modules/services/tailscale.nix
       ../../modules/network/host.nix
       # ../../modules/services/samba.nix
+      ../../modules/samba
       ../../modules/services/openssh.nix
     ];
 
