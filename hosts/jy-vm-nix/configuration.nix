@@ -80,6 +80,12 @@
     ];
   };
 
+  users.users.samba-guest = {
+    isSystemUser = true;
+    group = "nogroup";
+    description = "Samba guest user";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
