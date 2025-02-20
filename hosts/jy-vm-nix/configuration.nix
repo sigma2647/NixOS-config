@@ -109,6 +109,7 @@
     compsize
     python3
     uv
+    ffmpeg
     # iptables
   ];
 
