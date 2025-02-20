@@ -102,6 +102,7 @@
     compsize
     python3
     uv
+    # iptables
   ];
 
 
