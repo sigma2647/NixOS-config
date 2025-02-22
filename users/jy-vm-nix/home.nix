@@ -3,9 +3,9 @@
   home.stateVersion = "24.11"; # 请根据实际版本设置
   imports = [
     # ../../home/core.nix
-    # ../../home/shell
+    ../../home/shell
     # ../../home/lf
-    # ../../home/yazi/yazi.nix
+    ../../home/cli/yazi
     # ../../home/kitty
     # ../../home/pyprland
     # ../../home/waybar

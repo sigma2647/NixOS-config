@@ -14,6 +14,5 @@ in {
     BROWSER = "firefox";
     TERMINAL = "kitty";
     FOO = "bar";
-
   };
 }

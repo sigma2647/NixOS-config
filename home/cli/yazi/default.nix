@@ -13,7 +13,7 @@ in {
 
 		settings = {
 			manager = {
-				show_hidden = true;
+				show_hidden = false;
 			};
 			preview = {
 				max_width = 1000;
@@ -57,6 +57,11 @@ in {
 					on = ["g" "o"];
 					run = "cd ~/note/sigma/";
 					desc = "Cd to note";
+				}
+				{
+					on = ["g" "v"];
+					run = "cd ~/.config/nvim";
+					desc = "Cd to nvim config";
 				}
 				{
 					on = ["g" "i"];
