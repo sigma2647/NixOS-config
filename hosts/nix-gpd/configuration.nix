@@ -111,12 +111,5 @@
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.substituters = [ 
-      "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/"
-      "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable"
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://mirror.sjtu.edu.cn/nix-channels/store/"
-      "https://cache.nixos.org/"
-  ];
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
 }
