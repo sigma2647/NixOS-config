@@ -56,18 +56,6 @@
           home-manager.nixosModules.home-manager
           ./modules/base.nix
           {
-            nix.settings = {
-              auto-optimise-store = true;
-              experimental-features = [ "nix-command" "flakes" ];
-              # 并行构建任务数
-              max-jobs = "auto";
-              # 构建时使用硬链接而不是复制
-              use-case-hack = true;
-            };
-            
-            # 支持非 NixOS 编译的程序
-            programs.nix-ld.enable = true;
-
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -79,8 +67,22 @@
         ] ++ extraModules;
       };
 
+      # Helper function for creating home-manager configurations
+      mkHomeConfig = { system, configFile, extraModules ? [] }: home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        modules = [
+          configFile
+        ] ++ extraModules;
+        extraSpecialArgs = {
+          inherit inputs;
+          pkgs = pkgsBySystem.${system}.stable;
+          pkgs-unstable = pkgsBySystem.${system}.unstable;
+        };
+      };
 
-      hostnames = "foo";
       lib = nixpkgs.lib;
 
     in
@@ -104,7 +106,6 @@
         username = "lawrence";
         specialArgs = {
           inherit username
-                  hostnames
                   inputs;
         };
       in
@@ -131,8 +132,7 @@
       nix-lab = let
         username = "lawrence";
         specialArgs = {
-          inherit username
-                  hostnames;
+          inherit username;
         };
       in
         nixpkgs.lib.nixosSystem {
@@ -156,30 +156,33 @@
     };
 
     homeConfigurations = {
-      darwin = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-darwin";
-        };
-        modules = [
-          ./home/darwin/home.nix
-        ];
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+      # Darwin configurations
+      "mini" = mkHomeConfig {
+        system = "aarch64-darwin";
+        configFile = ./home/darwin/home.nix;
       };
 
-      linux = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-        };
-        modules = [
-          ./home/linux/home.nix
-        ];
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+      "darwin-arm" = mkHomeConfig {
+        system = "x86_64-darwin";
+        configFile = ./home/darwin/home.nix;
       };
-    };
+
+      # Linux configurations
+      "linux-x86" = mkHomeConfig {
+        system = "x86_64-linux";
+        configFile = ./home/linux/home.nix;
+      };
+
+      "linux-arm" = mkHomeConfig {
+        system = "aarch64-linux";
+        configFile = ./home/linux/home.nix;
+      };
+
+      # Arch Linux configuration
+      "arch" = mkHomeConfig {
+        system = "x86_64-linux";
+        configFile = ./home/arch/home.nix;
+      };
 
   };
 }

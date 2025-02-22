@@ -1,13 +1,21 @@
 # modules/base.nix
 { config, lib, pkgs, ... }:
 {
+  imports = [
+    ../modules/system/time.nix
+  ];
   nix.settings = {
-    auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
     max-jobs = "auto";
     use-case-hack = true;
+    # 添加并行下载设置
+    max-substituters = 8;
+    # 开启二进制缓存压缩
+    compress-build-log = true;
+    # 自动清理过期的生成
+    auto-optimise-store = true;
     substituters = [
-      "https://mirrors.cernet.edu.cn/nix-channels/store"  # 中科大
+      "https://mirrors.cernet.edu.cn/nix-channels/store" # mirrorz
       "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
       "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
@@ -34,4 +42,5 @@
     git
     
   ];
+  services.fstrim.enable = true;
 }
