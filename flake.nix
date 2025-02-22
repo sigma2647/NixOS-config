@@ -1,30 +1,6 @@
 {
   description = "Lawrence's config";
 
-  nixConfig = {
-
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    extra-substituters = [
-      "https://mirrors.cernet.edu.cn/nix-channels/store"  # 中科大
-      "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
-      "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
-      "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
-      "https://nix-community.cachix.org"
-    ];
-    trusted-users = [ "root" "lawrence" "sigma" ];
-
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/nixexprs.tar.xz";
@@ -112,33 +88,18 @@
 
     # 配置 NixOS
     nixosConfigurations = {
-      # "nix-home" = lib.mkHost "nix-home";
 
-      nix-home = let
-        username = "sigma";
-        specialArgs = {
-          inherit username
-                  hostnames
-                  inputs;
-        };
-      in
-        nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nix-home/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-
-              home-manager.extraSpecialArgs = inputs // specialArgs;
-              home-manager.users.${username} = import ./users/nix-home/home.nix;
-              _module.args.inputs = inputs;
-            }
-        ];
+      jy-vm-nix = mkSystem {
+        hostname = "jy-vm-nix";
+        username = "lawrence";
       };
+
+      nix-home = mkSystem {
+        hostname = "nix-home";
+        username = "sigma";
+      };
+
+
       nix-gpd = let
         username = "lawrence";
         specialArgs = {
@@ -165,36 +126,7 @@
         ];
       };
 
-      jy-vm-nix = mkSystem {
-        hostname = "jy-vm-nix";
-        username = "lawrence";
-      };
 
-      # jy-vm-nix = let
-      #   username = "lawrence";
-      #   specialArgs = {
-      #     inherit username
-      #             hostnames;
-      #   };
-      # in
-      #   nixpkgs.lib.nixosSystem {
-      #     inherit specialArgs;
-      #     system = "x86_64-linux";
-      #   modules = [
-      #     ./hosts/jy-vm-nix/configuration.nix
-
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.backupFileExtension = "backup";
-
-      #       home-manager.extraSpecialArgs = inputs // specialArgs;
-      #       home-manager.users.${username} = import ./users/jy-vm-nix/home.nix;
-      #     }
-
-      #   ];
-      # };
 
       nix-lab = let
         username = "lawrence";
@@ -219,32 +151,6 @@
             home-manager.users.${username} = import ./users/nix-lab/home.nix;
           }
 
-        ];
-      };
-      jy-alien = let
-        username = "sigma";
-        specialArgs = {
-          inherit username
-                  hostnames
-                  inputs;
-        };
-      in
-        nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-        modules = [
-          ./hosts/jy-alien/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.backupFileExtension = "backup";
-
-            home-manager.extraSpecialArgs = inputs // specialArgs;
-            home-manager.users.${username} = import ./users/jy-alien/home.nix;
-            _module.args.inputs = inputs;
-          }
         ];
       };
     };
