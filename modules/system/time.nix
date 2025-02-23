@@ -1,4 +1,4 @@
 _:{
   time.timeZone = "Asia/Shanghai";                                                                                          
-  timesyncd.enable = true;
+  services.timesyncd.enable = true;
 }
