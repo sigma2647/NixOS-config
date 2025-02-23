@@ -184,5 +184,6 @@
         configFile = ./home/arch/home.nix;
       };
 
+    };
   };
 }
