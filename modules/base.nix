@@ -40,6 +40,10 @@
   environment.systemPackages = with pkgs; [
     ffmpeg
     git
+
+
+    # mission-center
+    # dufs  # python -m http.server
     
   ];
   services.fstrim.enable = true;
