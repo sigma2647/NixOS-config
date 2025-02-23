@@ -13,13 +13,10 @@
       maple-mono        # Maple Mono 字体
       # nerd-fonts       # 如果需要安装所有 Nerd Fonts，可以取消注释
       # nerd-fonts.fira-code  # 如果只需要特定的 Nerd Fonts，可以单独安装
-      # nerd-fonts.jetbrains-mono
-            # 从 unstable 频道获取最新nerd-fonts
-      # (pkgs-unstable.nerdfonts.override {
-      #   fonts = [ "jetbrains-mono" ];
-      # })
       pkgs-unstable.nerd-fonts.jetbrains-mono
     ];
+
+    fontDir.enable = true; # 启用统一字体目录
 
     # 配置 fontconfig
     fontconfig = {
