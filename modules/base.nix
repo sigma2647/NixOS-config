@@ -8,8 +8,6 @@
     experimental-features = [ "nix-command" "flakes" ];
     max-jobs = "auto";
     use-case-hack = true;
-    # 添加并行下载设置
-    max-substituters = 8;
     # 开启二进制缓存压缩
     compress-build-log = true;
     # 自动清理过期的生成
