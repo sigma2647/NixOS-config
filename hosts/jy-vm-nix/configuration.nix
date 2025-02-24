@@ -2,6 +2,7 @@
   # 导入硬件配置
   imports =
     [ # Include the results of the hardware scan.
+      ./packages.nix
       ./hardware-configuration.nix
       ../../modules/services/tailscale.nix
       ../../modules/network/host.nix
@@ -108,9 +109,18 @@
     btrfs-progs
     compsize
     python3
+    stdenv.cc.cc.lib
+    python3Packages.numpy
     uv
     ffmpeg
     # iptables
+
+
+
+
+    blas
+    lapack
+    stdenv.cc.cc.lib
   ];
 
 
@@ -122,6 +132,7 @@
 
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
 
+  programs.nix-ld.enable = true;
   # nix.settings.substituters = lib.mkForce [
   #   "https://mirrors.ustc.edu.cn/nix-channels/store"
   #   "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
