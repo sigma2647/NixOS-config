@@ -45,7 +45,6 @@
 
 
 
-    python3
     wpgtk
     swww
     ffmpeg
@@ -99,6 +98,25 @@
     papirus-icon-theme
 
 
+    python3
+    blas
+    lapack
+    stdenv.cc.cc.lib
+
+    uv
+    ghostty
+    rofi-wayland
+    ripgrep
+    fd
+    swww
+
+    firefox
+
+
+    file # should bulitin
+    gcc
+    libz
+    gcc-unwrapped
 
   ];
 }
