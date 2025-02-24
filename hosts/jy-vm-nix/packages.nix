@@ -20,11 +20,8 @@
     stdenv.cc.cc.lib
 
     uv
-    ghostty
-    rofi-wayland
     ripgrep
     fd
-    swww
 
     firefox
 

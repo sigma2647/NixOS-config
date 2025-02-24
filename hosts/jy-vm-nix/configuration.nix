@@ -110,17 +110,10 @@
     compsize
     python3
     stdenv.cc.cc.lib
-    python3Packages.numpy
     uv
     ffmpeg
     # iptables
 
-
-
-
-    blas
-    lapack
-    stdenv.cc.cc.lib
   ];
 
 
