@@ -19,7 +19,7 @@
     lapack
     stdenv.cc.cc.lib
 
-    uv
+    # uv
     ripgrep
     fd
 

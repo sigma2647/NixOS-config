@@ -8,8 +8,21 @@
       ../../modules/network/host.nix
       # ../../modules/services/samba.nix
       ../../modules/samba
+      ../../modules/python
       ../../modules/services/openssh.nix
     ];
+
+
+  modules.python = {
+    enable = true;
+    pythonVersion = "python312";
+    enableNumpy = true;
+    enableDevelopment = true;
+    extraPackages = with pkgs.python312Packages; [
+      requests
+      pyyaml
+    ];
+  };
 
   # 使用 systemd-boot
   boot.loader.systemd-boot.enable = true;
@@ -118,7 +131,13 @@
 
 
   # 防火墙
-  networking.firewall.enable = true;
+  # 开启防火墙并允许特定端口
+  networking.firewall = {
+    enable = true;  # 启用防火墙
+    allowedTCPPorts = [ 80 443 8080 8888 ];  # 允许的TCP端口
+    # allowedUDPPorts = [ 53 8080 8888 ];  # 允许的UDP端口
+    allowedUDPPorts = [ 53 ];  # 允许的UDP端口
+  };
 
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
