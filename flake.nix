@@ -17,17 +17,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    cachix = {
-      url = "github:cachix/cachix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # cachix = {
+    #   url = "github:cachix/cachix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # ghostty = {
     #   url = "github:ghostty-org/ghostty";
     # };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, cachix , ... }:
+  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ... }:
     let
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs-unstable.lib.genAttrs supportedSystems;
@@ -62,7 +62,6 @@
         modules = [
           ./hosts/${hostname}/configuration.nix
           home-manager.nixosModules.home-manager
-          cachix.nixosModules.cachix  # 添加Cachix模块
           ./modules/base.nix
           {
             home-manager = {
