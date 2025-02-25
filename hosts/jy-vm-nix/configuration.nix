@@ -20,7 +20,7 @@
     enablePipx = true;
     enableUv = true;
     enableNumpy = true;  # 如需科学计算库
-    enableJupyter = true;  # 如需JupyterLab
+    enableJupyter = false;  # 如需JupyterLab
     jupyterPort = 8888;  # 默认端口
     extraPackages = with pkgs.python3Packages; [
       # requests
@@ -60,25 +60,6 @@
   };
 
 
-  # 开启 nix flakes
-  nix = {
-    settings.auto-optimise-store = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-    settings.trusted-users = ["root" "sigma" "lawrence"];
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    extraOptions = ''
-      keep-outputs = true
-      keep-derivations = true
-    '';
-  };
-
-  # 设置时区
-  time.timeZone = "Asia/Shanghai";
-
   # 设置网络
   networking = {
     hostName = "jy-vm-nix"; # 改成你想要的主机名
@@ -111,28 +92,6 @@
     autosuggestions.enable = true;
   };
 
-  # 系统环境变量
-  environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    
-    git
-    wget
-    curl
-    openssh
-    tmux
-    zoxide
-    stow
-
-    btrfs-progs
-    compsize
-    python3
-    stdenv.cc.cc.lib
-    ffmpeg
-    # iptables
-
-  ];
-
 
   # 防火墙
   # 开启防火墙并允许特定端口
@@ -148,7 +107,7 @@
 
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
 
-  programs.nix-ld.enable = true;
+  # programs.nix-ld.enable = true;
   # nix.settings.substituters = lib.mkForce [
   #   "https://mirrors.ustc.edu.cn/nix-channels/store"
   #   "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
