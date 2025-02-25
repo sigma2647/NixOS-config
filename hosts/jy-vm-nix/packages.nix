@@ -9,13 +9,26 @@
     wget
     stow
 
+
+
+    
+    openssh
+    zoxide
+
+    btrfs-progs
+    compsize
+    stdenv.cc.cc.lib
+    ffmpeg
+    # iptables
+
+
+
+
     tmux
     curl
-    zoxide
 
     blas
     lapack
-    stdenv.cc.cc.lib
 
     ripgrep
     fd

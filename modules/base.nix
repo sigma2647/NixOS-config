@@ -12,6 +12,7 @@
     compress-build-log = true;
     # 自动清理过期的生成
     auto-optimise-store = true;
+    use-xdg-base-directories = true;  # 减少Nix评估时的I/O操作
     substituters = [
       "https://mirrors.cernet.edu.cn/nix-channels/store" # mirrorz
       "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
