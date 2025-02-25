@@ -10,17 +10,17 @@
       max-jobs = "auto";
       use-case-hack = true;
       cores = 0;
+      use-xdg-base-directories = true;
       # 开启二进制缓存压缩
       compress-build-log = true;
       # 自动清理过期的生成
       auto-optimise-store = true;
-      use-xdg-base-directories = true;  # 减少Nix评估时的I/O操作
       substituters = [
         "https://mirrors.cernet.edu.cn/nix-channels/store" # mirrorz
-        "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
+        # "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
+        # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
         "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
-        "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
+        # "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
         # "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
