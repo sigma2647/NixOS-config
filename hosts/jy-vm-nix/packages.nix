@@ -13,13 +13,10 @@
     curl
     zoxide
 
-    python3
-    python3Packages.numpy
     blas
     lapack
     stdenv.cc.cc.lib
 
-    # uv
     ripgrep
     fd
 

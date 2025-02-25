@@ -13,14 +13,19 @@
     ];
 
 
+  # 配置Python模块
   modules.python = {
     enable = true;
-    pythonVersion = "python312";
-    enableNumpy = true;
-    enableDevelopment = true;
-    extraPackages = with pkgs.python312Packages; [
-      requests
-      pyyaml
+    enablePip = true;
+    enablePipx = true;
+    enableUv = true;
+    enableNumpy = true;  # 如需科学计算库
+    enableJupyter = true;  # 如需JupyterLab
+    jupyterPort = 8888;  # 默认端口
+    extraPackages = with pkgs.python3Packages; [
+      # requests
+      # pandas
+      # 其他需要的Python包
     ];
   };
 
@@ -123,7 +128,6 @@
     compsize
     python3
     stdenv.cc.cc.lib
-    uv
     ffmpeg
     # iptables
 

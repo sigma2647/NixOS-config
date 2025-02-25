@@ -57,8 +57,8 @@ in {
     ] 
     ++ (if cfg.enableNumpy then [ 
       # Basic numerical packages
-      pkgs.${cfg.pythonVersion}Packages.numpy
-      pkgs.${cfg.pythonVersion}Packages.pandas
+      # pkgs.${cfg.pythonVersion}Packages.numpy
+      # pkgs.${cfg.pythonVersion}Packages.pandas
       blas
       lapack
       stdenv.cc.cc.lib

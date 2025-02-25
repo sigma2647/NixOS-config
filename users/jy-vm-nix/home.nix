@@ -21,8 +21,6 @@
     # tree
     btop
     cmatrix
-    pipx
-    uv
     yazi
     lazygit
     starship
