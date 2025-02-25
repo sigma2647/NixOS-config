@@ -6,6 +6,11 @@
   ];
   nix = {
     settings = {
+      system-features = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      fallback = true;
+      log-lines = 25;  # 减少日志输出
+      eval-cache = true;
+      eval-max-memory = 4096; # MB，提高评估性能
       experimental-features = [ "nix-command" "flakes" ];
       max-jobs = "auto";
       use-case-hack = true;
