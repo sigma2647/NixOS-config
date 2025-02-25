@@ -16,13 +16,18 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cachix.url = "github:cachix/cachix";
+
+    cachix = {
+      url = "github:cachix/cachix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # ghostty = {
     #   url = "github:ghostty-org/ghostty";
     # };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, cachix , ... }:
     let
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs-unstable.lib.genAttrs supportedSystems;
@@ -48,12 +53,16 @@
           pkgs-unstable = pkgsBySystem.${system}.unstable;
         };
       in
+
+      assert lib.assertMsg (builtins.elem system supportedSystems) "Unsupported system: ${system}";
+
       nixpkgs.lib.nixosSystem {
         inherit system;
         inherit specialArgs;
         modules = [
           ./hosts/${hostname}/configuration.nix
           home-manager.nixosModules.home-manager
+          cachix.nixosModules.cachix  # 添加Cachix模块
           ./modules/base.nix
           {
             home-manager = {

@@ -18,7 +18,7 @@
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
       "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
       "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
-      "https://nix-community.cachix.org"
+      # "https://nix-community.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -28,6 +28,7 @@
   
   # 支持非 NixOS 编译的程序
   programs.nix-ld.enable = true;
+  services.cachix-agent.enable = true;
 
   # home-manager 基础配置
   home-manager = {
