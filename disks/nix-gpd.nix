@@ -15,6 +15,13 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [  # 关键修改
+                  "fmask=0077"
+                  "dmask=0077"
+                  "noexec"
+                  "nodev"
+                  "nosuid"
+                ];
               };
             };
 
