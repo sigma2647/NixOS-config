@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, username, hostname , pkgs, pkgs-unstable, ... }: {
   # 导入硬件配置
   imports = [
     ../fonts.nix
@@ -46,12 +46,12 @@
 
   # 设置网络
   networking = {
-    hostName = "nix-gpd"; # 改成你想要的主机名
+    hostName = hostname; # 改成你想要的主机名
     networkmanager.enable = true;
   };
 
   # 添加你的用户
-  users.users.lawrence = {
+  users.users.username = {
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;

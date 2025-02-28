@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, username, hostname , pkgs, pkgs-unstable, ... }: {
   # 导入硬件配置
   imports =
     [ # Include the results of the hardware scan.
