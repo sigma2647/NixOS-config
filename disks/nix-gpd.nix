@@ -2,7 +2,8 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/disk/by-id/nvme-BIWIN_SSD_2236064901331";  # 替换为你的磁盘设备
+        # device = "/dev/disk/by-id/nvme-BIWIN_SSD_2236064901331";  # 替换为你的磁盘设备
+        device = "/dev/disk/by-id/nvme-BM9C1_Samsung_512GB_______S7BJNF2X992426";  # 替换为你的磁盘设备
         type = "disk";
         content = {
           type = "gpt";
