@@ -43,21 +43,6 @@
     "vm.vfs_cache_pressure" = 125;
   };
 
-  # 开启 nix flakes
-  nix = {
-    settings.auto-optimise-store = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    extraOptions = ''
-      keep-outputs = true
-      keep-derivations = true
-    '';
-  };
-
 
   # 设置网络
   networking = {
