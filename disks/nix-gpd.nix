@@ -18,7 +18,6 @@
                 mountOptions = [  # 关键修改
                   "fmask=0077"
                   "dmask=0077"
-                  "noexec"
                   "nodev"
                   "nosuid"
                 ];
