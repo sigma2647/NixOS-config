@@ -51,7 +51,7 @@
   };
 
   # 添加你的用户
-  users.users.username = {
+  users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;
