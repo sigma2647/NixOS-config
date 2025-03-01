@@ -62,13 +62,13 @@
 
   # 设置网络
   networking = {
-    hostName = "jy-vm-nix"; # 改成你想要的主机名
+    hostName = hostname;
     networkmanager.enable = true;
   };
 
 
   # 用户
-  users.users.lawrence = {                   # 将 'xing' 替换为你的用户名
+  users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;
