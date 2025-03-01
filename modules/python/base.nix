@@ -49,10 +49,10 @@ in {
       
       # Development tools
       (mkIf cfg.enableDevelopment (with pkgs; [
-        ruff
-        black
-        mypy
-        pyright
+        # ruff
+        # black
+        # mypy
+        # pyright
       ]))
     ] 
     ++ (if cfg.enableNumpy then [ 
