@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, username, hostname , pkgs, pkgs-unstable, ... }: {
   # 导入硬件配置
   imports =
     [ # Include the results of the hardware scan.
@@ -40,34 +40,15 @@
   };
 
 
-  # 开启 nix flakes
-  nix = {
-    settings.auto-optimise-store = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-    settings.trusted-users = ["root" "sigma" "lawrence"];
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    extraOptions = ''
-      keep-outputs = true
-      keep-derivations = true
-    '';
-  };
-
-  # 设置时区
-  time.timeZone = "Asia/Shanghai";
-
   # 设置网络
   networking = {
-    hostName = "nix-lab"; # 改成你想要的主机名
+    hostName = hostname; # 改成你想要的主机名
     networkmanager.enable = true;
   };
 
 
   # 用户
-  users.users.lawrence = {                   # 将 'xing' 替换为你的用户名
+  users.users.${username} = {                   # 将 'xing' 替换为你的用户名
     isNormalUser = true;
     shell = pkgs.zsh;
     createHome = true;
