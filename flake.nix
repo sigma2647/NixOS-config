@@ -91,7 +91,7 @@
         };
       };
 
-      lib = nixpkgs.lib
+      lib = nixpkgs.lib;
     in
   {
 
