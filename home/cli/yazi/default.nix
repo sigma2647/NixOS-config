@@ -64,11 +64,6 @@ in {
 					desc = "Cd to nvim config";
 				}
 				{
-					on = ["g" "i"];
-					run = "plugin lazygit";
-					desc = "run lazygit";
-				}
-				{
 					on = ["<C-g>"];
 					run = "shell --confirm --block lazygit";
 					desc = "Lazygit";
