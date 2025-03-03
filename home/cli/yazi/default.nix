@@ -19,6 +19,18 @@ in {
 				max_width = 1000;
 				max_height = 1000;
 			};
+      opener = {
+        edit = [
+          { run = "${EDITOR:-vi} '$@'"; desc = "$EDITOR"; block = true; for = "unix"; }
+          { run = "nvim %*"; block = true; desc = "nvim"; for = "windows"; }
+        ];
+        xdg = [
+          { run = ''xdg-open "$@"''; desc = "xdg-open"; for = "unix"; }
+        ];
+      };
+      open.prepend_rules = [
+        { mime = "*"; use = "xdg"; }
+      ];
 		};
 
 		# plugins = {
