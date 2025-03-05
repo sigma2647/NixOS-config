@@ -21,16 +21,25 @@ in {
 			};
       opener = {
         edit = [
-          { run = "${EDITOR:-vi} '$@'"; desc = "$EDITOR"; block = true; for = "unix"; }
-          { run = "nvim %*"; block = true; desc = "nvim"; for = "windows"; }
+          {
+            run = ''$EDITOR "$@"'';
+            block = true;
+            for = "unix";
+          }
+          {
+            run = "nvim %*";
+            block = true;
+            desc = "nvim";
+            for = "windows";
+          }
         ];
-        xdg = [
-          { run = ''xdg-open "$@"''; desc = "xdg-open"; for = "unix"; }
-        ];
+        # xdg = [
+        #   { run = ''xdg-open "$@"''; desc = "xdg-open"; for = "unix"; }
+        # ];
       };
-      open.prepend_rules = [
-        { mime = "*"; use = "xdg"; }
-      ];
+      # open.prepend_rules = [
+      #   { mime = "*"; use = "xdg"; }
+      # ];
 		};
 
 		# plugins = {
