@@ -2,6 +2,7 @@
   # 导入硬件配置
   imports =
     [ # Include the results of the hardware scan.
+      ../common.nix
       ./packages.nix
       ./hardware-configuration.nix
       ../../modules/services/tailscale.nix
