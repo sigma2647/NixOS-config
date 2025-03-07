@@ -30,6 +30,7 @@
     swww
 
     firefox
+    emacs30
 
 
     file # should bulitin
