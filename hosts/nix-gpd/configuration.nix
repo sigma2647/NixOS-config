@@ -9,6 +9,7 @@
     ../../modules/system/time.nix
     ../../modules/network/host.nix
     ../../modules/docker.nix
+    # ../../modules/clash.nix
   ];
 
   # 使用 systemd-boot
