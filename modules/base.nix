@@ -20,12 +20,19 @@
       # 自动清理过期的生成
       auto-optimise-store = true;
       substituters = [
-        "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
-        "https://mirrors.cernet.edu.cn/nix-channels/store" # mirrorz
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
-        "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
-        "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
-        "https://nix-community.cachix.org"
+
+
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
+
+        # "https://mirrors.ustc.edu.cn/nix-channels/store"  # 中科大
+        # "https://mirrors.cernet.edu.cn/nix-channels/store" # mirrorz
+        # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
+        # "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上海交大 
+        # "https://mirrors.bfsu.edu.cn/nix-channels/store"  # 北外
+        # "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -57,6 +64,7 @@
 
     # mission-center
     # dufs  # python -m http.server
+    # glance # A nice dashboard
     
   ];
   services.fstrim.enable = true;
