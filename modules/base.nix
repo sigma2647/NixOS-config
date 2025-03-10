@@ -65,6 +65,7 @@
     # mission-center
     # dufs  # python -m http.server
     # glance # A nice dashboard
+    # cockpit
     
   ];
   services.fstrim.enable = true;
