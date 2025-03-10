@@ -41,5 +41,8 @@
     libz
     gcc-unwrapped
 
+    dufs
+    emacs30
+
   ];
 }
