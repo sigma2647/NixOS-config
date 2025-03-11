@@ -66,6 +66,7 @@
     # dufs  # python -m http.server
     # glance # A nice dashboard
     # cockpit
+    # deskreen # Turn any device into a secondary screen for your computer
     
   ];
   services.fstrim.enable = true;
