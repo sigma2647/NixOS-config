@@ -68,6 +68,7 @@
     # cockpit
     # deskreen # Turn any device into a secondary screen for your computer
     # zip
+    # unzip
     
   ];
   services.fstrim.enable = true;
