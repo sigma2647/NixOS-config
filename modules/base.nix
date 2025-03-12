@@ -67,6 +67,7 @@
     # glance # A nice dashboard
     # cockpit
     # deskreen # Turn any device into a secondary screen for your computer
+    # zip
     
   ];
   services.fstrim.enable = true;
