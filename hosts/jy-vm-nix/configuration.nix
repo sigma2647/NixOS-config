@@ -11,7 +11,7 @@
       ../../modules/samba
       ../../modules/python
       ../../modules/services/openssh.nix
-      ../../modules/docker.nix
+      # ../../modules/docker.nix
     ];
 
 
