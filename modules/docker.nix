@@ -2,6 +2,7 @@
 {
   # Enables docker in rootless mode
   virtualisation = {
+    docker.enable = true;
     docker.rootless = {
       enable = true;
       setSocketVariable = true;
