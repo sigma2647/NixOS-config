@@ -10,6 +10,7 @@
     ../../modules/network/host.nix
     ../../modules/docker.nix
     # ../../modules/clash.nix
+    ../../modules/virtual.nix
   ];
 
   # 使用 systemd-boot
