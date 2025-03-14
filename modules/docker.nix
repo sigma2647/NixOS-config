@@ -30,11 +30,4 @@
     subGidRanges = [{ startGid = 100000; count = 65536; }];
   };
 
-  # 用户级服务管理
-  systemd.user.services.docker = {
-    wantedBy = [ "default.target" ];
-    serviceConfig = {
-      Environment = "DOCKERD_FLAGS=--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON config.virtualisation.docker.daemon.settings)}";
-    };
-  };
 }
