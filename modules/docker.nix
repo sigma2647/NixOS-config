@@ -8,7 +8,7 @@
       #   setSocketVariable = true;
       # };
       daemon.settings = {
-        data-root = "/var/lib/docker";
+        data-root = "/etc/docker";
         registry-mirrors = [ 
           "https://docker.m.daocloud.io"
           "https://docker.imgdb.de"
