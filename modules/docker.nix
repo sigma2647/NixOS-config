@@ -10,11 +10,11 @@
       daemonConfig = {
         data-root = "/var/lib/docker";  # 保持与之前一致
         registry-mirrors = [ 
-          "https://docker.m.daocloud.io",
-          "https://docker.imgdb.de",
-          "https://docker-0.unsee.tech",
-          "https://docker.hlmirror.com",
-          "https://docker.1ms.run",
+          "https://docker.m.daocloud.io"
+          "https://docker.imgdb.de"
+          "https://docker-0.unsee.tech"
+          "https://docker.hlmirror.com"
+          "https://docker.1ms.run"
           "https://func.ink" 
         ];
       };
