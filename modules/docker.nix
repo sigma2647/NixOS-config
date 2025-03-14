@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username,... }:
 
 {
   virtualisation.docker = {
@@ -22,7 +22,7 @@
   };
 
   # 必须添加的权限配置
-  users.users.yourusername = {
+  users.users.${username} = {
     extraGroups = [ "docker" "libvirtd" ];
     subUidRanges = [{ startUid = 100000; count = 65536; }];
     subGidRanges = [{ startGid = 100000; count = 65536; }];
