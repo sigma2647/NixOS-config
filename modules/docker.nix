@@ -7,7 +7,7 @@
       enable = true;
       setSocketVariable = true;
       # 明确指定 rootless 模式的配置路径
-      daemonConfig = {
+      daemon.settings = {
         data-root = "/var/lib/docker";  # 保持与之前一致
         registry-mirrors = [ 
           "https://docker.m.daocloud.io"
