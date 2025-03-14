@@ -14,9 +14,25 @@
   ];
 
   # 使用 systemd-boot
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot";
+
+
+
+  boot.loader = {
+    efi.efiSysMountPoint = "/boot";
+    timeout = 5;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+      efiInstallAsRemovable = true;
+      default = "saved";
+      configurationLimit = 5;
+    };
+  };
 
 
   # 文件系统优化
