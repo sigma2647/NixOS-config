@@ -1,36 +1,40 @@
-{ pkgs, username,... }:
+{ pkgs, ... }:
 
 {
+  # Docker Rootless 模式核心配置
   virtualisation.docker = {
     enable = true;
     rootless = {
       enable = true;
-      setSocketVariable = true;
-      # 明确指定 rootless 模式的配置路径
-      daemon.settings = {
-        data-root = "/var/lib/docker";  # 保持与之前一致
-        registry-mirrors = [ 
-          "https://docker.m.daocloud.io"
-          "https://docker.imgdb.de"
-          "https://docker-0.unsee.tech"
-          "https://docker.hlmirror.com"
-          "https://docker.1ms.run"
-          "https://func.ink" 
-        ];
-      };
+      setSocketVariable = true;  # 设置 DOCKER_HOST 环境变量
+    };
+
+    # 关键：使用官方文档指定的 daemon.settings
+    daemon.settings = {
+      registry-mirrors = [ 
+        "https://docker.m.daocloud.io"
+        "docker.imgdb.de"
+        "https://docker-0.unsee.tech"
+        "https://docker.hlmirror.com"
+        "https://docker.1ms.run"
+        "https://func.ink" 
+      ];
     };
   };
 
-  # 必须添加的权限配置
-  users.users.${username} = {
-    extraGroups = [ "docker" "libvirtd" ];
+  # 必须的用户命名空间配置
+  users.users.lawrence = {
+    isNormalUser = true;
+    extraGroups = [ "docker" ];
     subUidRanges = [{ startUid = 100000; count = 65536; }];
     subGidRanges = [{ startGid = 100000; count = 65536; }];
   };
 
-  # 确保用户级 systemd 能正确加载服务
+  # 用户级服务管理
   systemd.user.services.docker = {
-    enable = true;
     wantedBy = [ "default.target" ];
+    serviceConfig = {
+      Environment = "DOCKERD_FLAGS=--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON config.virtualisation.docker.daemon.settings)}";
+    };
   };
 }
