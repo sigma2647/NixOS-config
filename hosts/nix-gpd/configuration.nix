@@ -10,29 +10,29 @@
     ../../modules/network/host.nix
     ../../modules/docker.nix
     # ../../modules/clash.nix
-    ../../modules/virtual.nix
+    # ../../modules/virtual.nix
   ];
 
   # 使用 systemd-boot
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
 
 
-  boot.loader = {
-    efi.efiSysMountPoint = "/boot";
-    timeout = 5;
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-      efiInstallAsRemovable = true;
-      default = "saved";
-      configurationLimit = 5;
-    };
-  };
+  # boot.loader = {
+  #   efi.efiSysMountPoint = "/boot";
+  #   timeout = 5;
+  #   grub = {
+  #     enable = true;
+  #     efiSupport = true;
+  #     device = "nodev";
+  #     useOSProber = true;
+  #     efiInstallAsRemovable = true;
+  #     default = "saved";
+  #     configurationLimit = 5;
+  #   };
+  # };
 
 
   # 文件系统优化
@@ -100,7 +100,8 @@
 
 
   # services.getty.autologinUser = "lawrence";
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
+  services.displayManager.ly.enable = true;
 
   documentation.enable = true;
   documentation.dev.enable = true;
