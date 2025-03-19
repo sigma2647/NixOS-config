@@ -69,7 +69,7 @@
     # deskreen # Turn any device into a secondary screen for your computer
     # zip
     # unzip
-    
+    # typst
   ];
   services.fstrim.enable = true;
 }
