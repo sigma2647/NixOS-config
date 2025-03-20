@@ -70,6 +70,7 @@
     # zip
     # unzip
     # typst
+    # osv-scanner
   ];
   services.fstrim.enable = true;
 }
