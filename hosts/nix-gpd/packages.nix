@@ -10,21 +10,21 @@
     stow
 
     networkmanager
-    networkmanagerapplet
+    # networkmanagerapplet
     openssh
     tmux
     curl
-    zoxide
+    # zoxide
 
-    python3
-    python3Packages.numpy
-    blas
-    lapack
-    stdenv.cc.cc.lib
+    # python3
+    # python3Packages.numpy
+    # blas
+    # lapack
+    # stdenv.cc.cc.lib
 
     uv
-    ghostty
-    rofi-wayland
+    # ghostty
+    # rofi-wayland
     ripgrep
     fd
     swww
@@ -33,10 +33,10 @@
     emacs30
 
 
-    file # should bulitin
+    # file # should bulitin
     gcc
-    libz
-    gcc-unwrapped
+    # libz
+    # gcc-unwrapped
 
   ];
 }
