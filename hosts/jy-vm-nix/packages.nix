@@ -44,5 +44,7 @@
     dufs
     emacs30
 
+    ncurses
+
   ];
 }
