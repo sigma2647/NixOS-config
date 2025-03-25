@@ -72,6 +72,7 @@
     # typst
     # osv-scanner # pentest
     # nuclei      # pentest
+    # syncthing
   ];
   services.fstrim.enable = true;
 }
