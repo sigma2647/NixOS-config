@@ -73,6 +73,10 @@
     # osv-scanner # pentest
     # nuclei      # pentest
     # syncthing
+
+    # unixtools.xxd
+    # hexyl
+    # rPackages.hexView
   ];
   services.fstrim.enable = true;
 }
