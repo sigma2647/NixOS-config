@@ -14,7 +14,7 @@
     openssh
     tmux
     curl
-    # zoxide
+    zoxide
 
     # python3
     # python3Packages.numpy
