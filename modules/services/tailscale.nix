@@ -30,11 +30,11 @@
     extraCommands = ''
       nft add rule ip filter ts-forward mark and 0xff0000 == 0x40000 accept
     '';
+  };
 
-    systemd.services.tailscale = {
-      after = [ "network-online.target"];
-      wants = [ "network-online.target"];
-      wantedBy = [ "multi-user.target"];
-    };
+  systemd.services.tailscale = {
+    after = [ "network-online.target"];
+    wants = [ "network-online.target"];
+    wantedBy = [ "multi-user.target"];
   };
 }
