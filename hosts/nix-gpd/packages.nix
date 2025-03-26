@@ -37,6 +37,10 @@
     gcc
     # libz
     # gcc-unwrapped
+    ncurses
+    # iptables-legacy
+    kitty
+    obsidian
 
   ];
 }

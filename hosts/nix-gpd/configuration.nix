@@ -116,4 +116,7 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
+  environment.variables = {
+    TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
+  };
 }
