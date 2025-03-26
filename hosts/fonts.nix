@@ -11,6 +11,7 @@
       font-awesome      # Font Awesome 图标字体
       times-newer-roman
       maple-mono        # Maple Mono 字体
+      pkgs-unstable.maple-mono.NF-CN
       # nerd-fonts       # 如果需要安装所有 Nerd Fonts，可以取消注释
       # nerd-fonts.fira-code  # 如果只需要特定的 Nerd Fonts，可以单独安装
       pkgs-unstable.nerd-fonts.jetbrains-mono

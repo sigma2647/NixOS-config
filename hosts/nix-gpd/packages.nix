@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, pkgs-unstable, lib, ... }: {
   # 基础系统工具
   environment.systemPackages = with pkgs; [
     btrfs-progs
@@ -23,7 +23,7 @@
     # stdenv.cc.cc.lib
 
     uv
-    # ghostty
+    pkgs-unstable.ghostty
     # rofi-wayland
     ripgrep
     fd
