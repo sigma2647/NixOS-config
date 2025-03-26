@@ -39,8 +39,8 @@
     # gcc-unwrapped
     ncurses
     # iptables-legacy
-    kitty
-    obsidian
+    # kitty
+    # obsidian
 
   ];
 }

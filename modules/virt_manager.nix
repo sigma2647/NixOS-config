@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   virtualisation.libvirtd = {
     enable = true;
@@ -11,7 +11,7 @@
     };
   };
   programs.virt-manager.enable = true;
-  users.users.evi1_f4iry.extraGroups = [ "libvirtd" ];
+  users.users.${username}.extraGroups = [ "libvirtd" "qemu-libvirtd" "kvm" ];
   # 对于 virtiofs，目前它在 NixOS 中的使用还没有得到很好的支持，因此我们需要在 libvirt guest 声明中为其添加一个显式选项
   environment.systemPackages = with pkgs; [ virtiofsd ];
   # 在管理器中为虚拟机增加文件系统，调好目录后修改xml部分增加二进制路径
