@@ -23,7 +23,7 @@
     # stdenv.cc.cc.lib
 
     uv
-    pkgs-unstable.ghostty
+    # pkgs-unstable.ghostty
     # rofi-wayland
     ripgrep
     fd
