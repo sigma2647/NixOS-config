@@ -38,5 +38,5 @@
       wants = [ "network-online.target"];
       wantedBy = [ "multi-user.target"];
     };
-  }
+  };
 }
