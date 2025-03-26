@@ -27,9 +27,6 @@
     checkReversePath = "loose";
     allowedUDPPorts = [ 41641 ];
     trustedInterfaces = [ "tailscale0" ];
-    extraCommands = ''
-      nft add rule ip filter ts-forward mark and 0xff0000 == 0x40000 accept
-    '';
   };
 
   systemd.services.tailscale = {
