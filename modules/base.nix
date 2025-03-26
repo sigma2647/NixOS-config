@@ -75,6 +75,8 @@
     # unixtools.xxd
     # hexyl
     # rPackages.hexView
+    # filebrowser
+    # helix
   ];
   services.fstrim.enable = true;
 }
