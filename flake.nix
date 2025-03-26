@@ -61,9 +61,8 @@
         inherit specialArgs;
         modules = [
           ./hosts/${hostname}/configuration.nix
-          home-manager.nixosModules.home-manager
           ./modules/base.nix
-          {
+          home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
