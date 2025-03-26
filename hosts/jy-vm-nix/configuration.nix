@@ -117,4 +117,8 @@
   #   # 把官方源放在最后
   #   "https://cache.nixos.org"
   # ];
+  # 设置全局环境变量
+  environment.variables = {
+    TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
+  };
 }
