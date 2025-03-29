@@ -1,1 +1,1 @@
-nixos-install --option substituters "https://mirror.sjtu.edu.cn/nix-channels/store"
+nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
