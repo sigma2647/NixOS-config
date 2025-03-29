@@ -10,14 +10,15 @@
       ./hardware-configuration.nix
     ];
 
+  # 使用 systemd-boot
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
   # Use the systemd-boot EFI boot loader.
 
   boot.loader = {
-  efi.efiSysMountPoint = "/boot/efi";
-  timeout = 5;
+    efi.efiSysMountPoint = "/boot/efi";
+    timeout = 5;
     grub = {
       enable = true;
       efiSupport = true;
