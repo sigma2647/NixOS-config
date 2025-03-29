@@ -65,6 +65,7 @@
   systemd.services.NetworkManager.enable = true;
   networking.networkmanager.enable = true;
 
+  # virtualisation.vmware.guest.enable = true;
 
    # 启用 SSH 服务
   services.openssh.enable = true;
