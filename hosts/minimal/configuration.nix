@@ -13,6 +13,7 @@
   # 使用 systemd-boot
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.efi.efiSysMountPoint  = "/boot/efi";
 
   # Use the systemd-boot EFI boot loader.
 
@@ -103,6 +104,100 @@
     #gtk3
     #gtk4
   ];
+
+  # networking.hostName = "nixos"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  # Set your time zone.
+  time.timeZone = "Asia/Shanghai";
+
+  i18n.defaultLocale = "en_US.UTF-8";   # 语言设置
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
+
+  # 配置 Nix 的 channels
+  nixpkgs.config.allowUnfree = true;    # 允许安装非自由软件
+
+  # 用户
+  users.users.lawrence = {                   # 将 'xing' 替换为你的用户名
+    isNormalUser = true;
+    createHome = true;
+    extraGroups = [ "wheel" "networkmanager" ]; # 允许用户使用 sudo
+    packages = with pkgs; [              # 默认安装的用户包
+      vim
+      wget
+      htop
+    ];
+  };
+
+  # 启用 sudo
+  security.sudo.enable = true;
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  
+  systemd.services.NetworkManager.enable = true;
+  networking.networkmanager.enable = true;
+
+  # virtualisation.vmware.guest.enable = true;
+
+   # 启用 SSH 服务
+  services.openssh.enable = true;
+
+  # 防火墙
+  networking.firewall.enable = false;
+
+  # 启用开机自动更新
+  # system.autoUpgrade.enable = true;
+
+  # 系统环境变量
+  environment.systemPackages = with pkgs; [
+    vim
+    tmux
+    git
+    wget
+    curl
+    zoxide
+    #firefox
+    #hyprland                   # 安装 Hyprland
+    #waybar                     # 可选: Wayland 状态栏
+    #wofi                       # 可选: 应用启动器
+    #dunst                      # 可选: 通知管理器
+    #kitty
+
+    #fcitx5
+    #fcitx5-configtool
+
+    networkmanager
+    networkmanagerapplet
+    openssh
+
+    #gtk2
+    #gtk3
+    #gtk4
+  ];
+
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  nix.settings.substituters = [ 
+      
+    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    "https://mirror.sjtu.edu.cn/nix-channels/store"
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+    "https://cache.nixos.org"
+  ];
+
+  system.stateVersion = "24.11"; # Did you read the comment?
+  
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "quiet" "loglevel=3" "nowatchdog" ];
+}
+
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
