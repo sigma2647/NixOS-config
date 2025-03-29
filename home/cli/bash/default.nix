@@ -44,6 +44,7 @@
 
   };
 
+  home.file.".inputrc".source = ./.inputrc;
   home.packages = with pkgs; [
     tree
     btop
