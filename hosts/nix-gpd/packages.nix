@@ -40,7 +40,7 @@
     ncurses
     # iptables-legacy
     # kitty
-    obsidian
+    pkgs-unstable.obsidian
 
   ];
 }
