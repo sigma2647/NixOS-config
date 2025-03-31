@@ -8,6 +8,7 @@
     ../../home/shell
     ../../home/cli/lf
     ../../home/cli/yazi
+    ../../home/cli/bash
     ../../home/kitty
     # ../../home/pyprland
     ../../home/waybar
