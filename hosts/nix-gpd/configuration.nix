@@ -10,6 +10,7 @@
     ../../modules/network/host.nix
     ../../modules/ssd.nix
     ../../modules/zram.nix
+    ../../modules/virt_manager.nix
     # ../../modules/docker.nix
     # ../../modules/clash.nix
     # ../../modules/virtual.nix
