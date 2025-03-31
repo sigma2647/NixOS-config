@@ -34,7 +34,7 @@
     texstudio
     ghostty
     circumflex
-    cachix
+    # cachix
     traceroute
   ];
   programs.git = {

@@ -47,7 +47,7 @@
   
   # 支持非 NixOS 编译的程序
   programs.nix-ld.enable = true;
-  services.cachix-agent.enable = true;
+  # services.cachix-agent.enable = true;
 
   # home-manager 基础配置
   home-manager = {

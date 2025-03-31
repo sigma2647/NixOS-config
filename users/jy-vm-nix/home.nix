@@ -24,7 +24,7 @@
     yazi
     lazygit
     starship
-    cachix
+    # cachix
     devenv
     traceroute
   ];

@@ -33,7 +33,7 @@
     # texlive.combined.scheme-full
     # texstudio
     # circumflex
-    cachix
+    # cachix
     traceroute
     starship
     fastfetch
