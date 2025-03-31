@@ -8,6 +8,8 @@
     ../../modules/services/flatpak
     ../../modules/system/time.nix
     ../../modules/network/host.nix
+    ../../modules/ssd.nix
+    ../../modules/zram.nix
     # ../../modules/docker.nix
     # ../../modules/clash.nix
     # ../../modules/virtual.nix
@@ -42,18 +44,7 @@
     fileSystems = [ "/" "/nix" ];
   };
 
-  # 如果是 SSD
-  services.fstrim = {
-    enable = true;
-    interval = "weekly";
-  };
 
-  # zram 配置
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 25;
-  };
 
   # 系统优化
   boot.kernel.sysctl = {
