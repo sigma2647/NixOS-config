@@ -39,7 +39,7 @@
     starship
     fastfetch
     # kitty
-    ghostty
+    # ghostty
     lazygit
   ];
   programs.git = {
