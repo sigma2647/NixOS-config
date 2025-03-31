@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/vda";  # 替换为你的磁盘设备
+        device = "/dev/sda";  # 替换为你的磁盘设备
         type = "disk";
         content = {
           type = "gpt";

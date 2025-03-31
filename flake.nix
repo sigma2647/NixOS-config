@@ -44,6 +44,7 @@
       });
 
 
+     lib = nixpkgs.lib;
 
      mkSystem = { hostname, username, system ? "x86_64-linux", extraModules ? [] }: 
       let
@@ -90,7 +91,6 @@
         };
       };
 
-      lib = nixpkgs.lib;
     in
   {
 

@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/vda";  # 虚拟机磁盘设备
+        device = "/dev/sda";  # 虚拟机磁盘设备
         type = "disk";
         content = {
           type = "msdos";  # 使用MBR分区表(msdos)代替GPT，适用于BIOS
