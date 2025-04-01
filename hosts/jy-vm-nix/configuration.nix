@@ -13,6 +13,7 @@
       ../../modules/services/openssh.nix
       ../../modules/docker.nix
       ../../modules/virtual/vmware.nix
+      ../../modules/mysql
     ];
 
 
