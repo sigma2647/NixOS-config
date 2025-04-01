@@ -2,8 +2,8 @@
 
 {
   services.samba.settings = {
-    sda_public = {
-      "path" = "/mnt/sda/Public";
+    data = {
+      "path" = "/mnt/data/Public";
       "browseable" = "yes";
       "read only" = "no";
       "guest ok" = "no";
