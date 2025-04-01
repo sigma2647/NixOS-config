@@ -37,9 +37,11 @@
 
 
   fileSystems."/mnt/data" =
-    { device = "/dev/disk/by-uuid/7513bab7-8b07-407d-9e32-445ebbb9b42e";
+    { device = "/dev/disk/by-uuid/97e87407-963f-4e0f-b297-44c1644d635c";
       fsType = "btrfs";
     };
+
+
 
   swapDevices = [ ];
 
