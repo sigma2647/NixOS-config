@@ -13,7 +13,7 @@
     "rofi/config.rasi" = {
       text = ''
         * {
-            font: "Maple Mono NL NF CN 15";
+            font: "Maple Mono NF CN 15";
             g-spacing: 10px;
             g-margin: 0;
             b-color: #000000FF;
