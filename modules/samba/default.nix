@@ -3,6 +3,7 @@
 {
   imports = [
     ./shares/public.nix
+    ./shares/data.nix
   ];
 
   # 基础 Samba 服务配置
