@@ -1,4 +1,5 @@
-{ config, pkgs, pkgs-unstable, lib, ... }: {
+{ config, pkgs, pkgs-unstable, lib, ... }:
+{
   # 基础系统工具
   environment.systemPackages = with pkgs; [
     btrfs-progs
