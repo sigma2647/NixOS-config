@@ -73,6 +73,7 @@
     # syncthing
 
     # unixtools.xxd
+    # hexpatch
     # hexyl
     # rPackages.hexView
     # filebrowser
