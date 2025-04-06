@@ -5,7 +5,7 @@
     compsize
     git
     vim
-    neovim
+    pkgs-unstable.neovim
     wget
     stow
 
