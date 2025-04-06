@@ -25,6 +25,8 @@
 
       # 自定义默认字体
       defaultFonts = {
+        # antialias = true;
+        # hinting.enable = true;
         serif = [ "Times New Roman" ]; # 默认衬线字体
         sansSerif = [ "Arial" ];       # 默认无衬线字体
         monospace = [ "JetBrainsMono Nerd Font" "Maple Mono Nf" ]; # 默认等宽字体
