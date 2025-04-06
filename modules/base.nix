@@ -77,7 +77,7 @@
     # hexyl
     # rPackages.hexView
     # filebrowser
-    # helix
+    # croc # filetransfer
   ];
   services.fstrim.enable = true;
 }
