@@ -81,7 +81,7 @@
     #gtk3
     #gtk4
 
-    emacs29-pgtk
+    emacs
 
     fcitx5-rime
     rime-data
