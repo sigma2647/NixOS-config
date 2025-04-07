@@ -58,6 +58,7 @@
   environment.systemPackages = with pkgs; [
     ffmpeg
     git
+    unzip
 
 
     # mission-center
@@ -78,6 +79,8 @@
     # rPackages.hexView
     # filebrowser
     # croc # filetransfer
+    # browsh  # tui browser
+    # lynx # tui browser
   ];
   services.fstrim.enable = true;
 }
