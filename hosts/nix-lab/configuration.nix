@@ -93,12 +93,4 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
-
-  nix.settings.substituters = lib.mkForce [
-    "https://mirrors.ustc.edu.cn/nix-channels/store"
-    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-    "https://mirror.sjtu.edu.cn/nix-channels/store"
-    # 把官方源放在最后
-    "https://cache.nixos.org"
-  ];
 }
