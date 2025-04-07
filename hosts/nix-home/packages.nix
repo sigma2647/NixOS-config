@@ -32,12 +32,7 @@
 
     nautilus
     # ---
-    xfce.thunar
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
-    xfce.tumbler # 缩略图支持
     papirus-icon-theme
-    ffmpegthumbnailer
     gvfs
     adwaita-qt
     # ---
