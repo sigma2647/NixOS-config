@@ -152,14 +152,6 @@ pkgs,
   services.gvfs.enable = true;
 
   services.tumbler.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-            thunar-archive-plugin
-            thunar-volman
-            thunar-media-tags-plugin
-    ];
-  };
 
   services.pipewire = {
     enable = true;
@@ -169,17 +161,6 @@ pkgs,
     jack.enable = true;
   };
 
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      # substituters = [
-      #   "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      #   "https://mirrors.ustc.edu.cn/nix-channels/store"
-      #   "https://cache.nixos.org/"
-      # ];
-      trusted-users = ["root" "sigma" "lawrence"];
-    };
-  };
 
 
   system.stateVersion = "24.11"; # Did you read the comment?
