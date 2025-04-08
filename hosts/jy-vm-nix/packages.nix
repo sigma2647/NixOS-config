@@ -7,6 +7,7 @@
     git
     vim
     pkgs-unstable.neovim
+    # pkgs-unstable.python313Packages.markitdown
     wget
     stow
 
