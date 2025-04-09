@@ -59,6 +59,8 @@
     ffmpeg
     git
     unzip
+    gcc
+    nix-ld
 
 
     # mission-center

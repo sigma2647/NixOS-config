@@ -21,7 +21,7 @@
     # python3Packages.numpy
     # blas
     # lapack
-    # stdenv.cc.cc.lib
+    stdenv.cc.cc.lib
 
     uv
     pkgs-unstable.ghostty

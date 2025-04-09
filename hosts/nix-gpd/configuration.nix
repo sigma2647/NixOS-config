@@ -101,15 +101,15 @@
   documentation.man.enable = true;
 
 
-  #--------
-  # consider move to module
-  # programs.nix-ld.enable = true;
  
   # 允许非自由软件（如果需要）
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
-  # environment.variables = {
-  #   TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
-  # };
+  environment.sessionVariables = {
+    TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
+    LD_LIBRARY_PATH = "/run/current-system/sw/lib:$LD_LIBRARY_PATH";
+  };
+
 }
+
