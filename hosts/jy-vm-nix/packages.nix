@@ -48,5 +48,6 @@
 
     ncurses
 
+    pkgs-unstable.python313Packages.markitdown
   ];
 }
