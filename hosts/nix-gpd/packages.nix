@@ -45,5 +45,8 @@
 
     wl-clipboard # for hyprland
 
+    # pkgs-unstable.docling
+    pkgs-unstable.python313Packages.markitdown
+
   ];
 }
