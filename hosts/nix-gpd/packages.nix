@@ -43,5 +43,7 @@
     # kitty
     pkgs-unstable.obsidian
 
+    wl-clipboard # for hyprland
+
   ];
 }
