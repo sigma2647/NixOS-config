@@ -35,6 +35,7 @@
       efiInstallAsRemovable = true;
       default = "saved";
       configurationLimit = 5;
+      gfxmodeEfi = "2560x1600";
     };
   };
 
