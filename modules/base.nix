@@ -60,6 +60,7 @@
     git
     unzip
     gcc
+    gcc13
     nix-ld
 
 

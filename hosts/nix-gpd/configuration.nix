@@ -108,7 +108,7 @@
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
   environment.sessionVariables = {
     TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
-    LD_LIBRARY_PATH = "/run/current-system/sw/lib:$LD_LIBRARY_PATH";
+    # LD_LIBRARY_PATH = "/run/current-system/sw/lib:$LD_LIBRARY_PATH";
   };
 
 }
