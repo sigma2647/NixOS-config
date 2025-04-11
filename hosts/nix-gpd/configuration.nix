@@ -36,6 +36,7 @@
       default = "saved";
       configurationLimit = 5;
       gfxmodeEfi = "2560x1600";
+      theme = pkgs.catppuccin-grub;
     };
   };
 
