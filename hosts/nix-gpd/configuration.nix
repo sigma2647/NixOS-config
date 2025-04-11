@@ -35,7 +35,7 @@
       efiInstallAsRemovable = true;
       default = "saved";
       configurationLimit = 5;
-      gfxmodeEfi = "2560x1600";
+      gfxmodeEfi = "1920x1200";
       theme = pkgs.catppuccin-grub;
     };
   };
@@ -55,6 +55,8 @@
     "vm.swappiness" = 10;
     "vm.vfs_cache_pressure" = 125;
   };
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelParams = [ "iomem=relaxed" "amd_pstate=active" ];
 
 
   # 设置网络
