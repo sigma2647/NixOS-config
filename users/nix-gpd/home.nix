@@ -1,7 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, username, ... }:
 
 {
-# { pkgs, hostnames, ... }: {
   home.stateVersion = "24.11"; # 请根据实际版本设置
   imports = [
     ../../home/core.nix
@@ -56,5 +55,6 @@
     nix-direnv.enable = true;
   };
 
+  # home.file.".config/bat".source = /home/${username}/dotfile/arch/install.sh;
 
 }
