@@ -12,6 +12,7 @@
     # ../../home/pyprland
     ../../home/waybar
     ../../home/rofi
+    ../../home/git
     # # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
 
@@ -41,14 +42,6 @@
     # ghostty
     lazygit
   ];
-  programs.git = {
-    enable = true;
-    userName = "sigma2647";
-    userEmail = "1169446204@qq.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
 
   programs.direnv = {
     enable = true;
