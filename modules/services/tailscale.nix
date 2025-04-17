@@ -1,19 +1,26 @@
-{ pkgs, config, ... }:
-
+{config, lib, pkgs, pkgs-unstable,...}:
 {
-  config = {
-    services.tailscale.enable = true;
+  
+  services.tailscale = {
+    enable = true;
+    # package = pkgs-unstable.tailscale;
+    package = pkgs-unstable.tailscale;
+    useRoutingFeatures = "both";
+    acceptRoutes = true;
+  };
 
-    boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
 
-    networking.firewall.trustedInterfaces = [ "tailscale0" ];
-  }
+  networking.firewall = {
+    checkReversePath = "loose";
+    allowedUDPPorts = [ 41641 ];
+    trustedInterfaces = [ "tailscale0" ];
+  };
   #  // (if config.networking.hostName != "jeffhyper" then {} else {
   #   systemd.services.tailscale.serviceConfig.Environment = [
   #     "PORT=${config.services.tailscale.port}"
   #     "FLAGS=--exit-node=192.168.1.200"
   #   ];
   # })
-  ;
+  
 }
 
