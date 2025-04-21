@@ -6,7 +6,7 @@
     # package = pkgs-unstable.tailscale;
     package = pkgs-unstable.tailscale;
     useRoutingFeatures = "both";
-    acceptRoutes = true;
+    # acceptRoutes = true;
   };
 
 
