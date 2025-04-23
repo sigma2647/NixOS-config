@@ -50,13 +50,6 @@
 
 
 
-  # 系统优化
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 10;
-    "vm.vfs_cache_pressure" = 125;
-  };
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelParams = [ "iomem=relaxed" "amd_pstate=active" ];
 
 
   # 设置网络
@@ -115,5 +108,14 @@
     # LD_LIBRARY_PATH = "/run/current-system/sw/lib:$LD_LIBRARY_PATH";
   };
 
+  # 系统优化
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+    "vm.vfs_cache_pressure" = 125;
+  };
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.kernelParams = [ "iomem=relaxed" "amd_pstate=active" ];
 }
 
