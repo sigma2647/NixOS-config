@@ -84,6 +84,8 @@
     # croc # filetransfer
     # browsh  # tui browser
     # lynx # tui browser
+    # sqlitebrowser
+
   ];
   services.fstrim.enable = true;
 }
