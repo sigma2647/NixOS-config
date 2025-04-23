@@ -8,7 +8,7 @@
     initExtra = ''
       export HISTSIZE=10000
       stty -ixon
-      export HISTTIMEFORMAT="%F %T"
+      export HISTTIMEFORMAT="%F %T "
       export MANPAGER="nvim +Man!"
 
 
