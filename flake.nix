@@ -27,7 +27,7 @@
     # };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = { self, home-manager, nixpkgs, nixpkgs-unstable, ... } @ inputs:
     let
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs-unstable.lib.genAttrs supportedSystems;
