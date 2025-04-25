@@ -12,6 +12,7 @@
   # 使用 systemd-boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint  = "/boot/efi";
 
   # 文件系统优化
   services.btrfs.autoScrub = {
