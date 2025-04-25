@@ -7,7 +7,6 @@
         content = {
           type = "gpt";
           partitions = {
-            # EFI 引导分区
             ESP = {
               type = "EF00";  # EFI 分区类型
               size = "1G";

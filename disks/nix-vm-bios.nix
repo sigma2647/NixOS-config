@@ -5,18 +5,20 @@
         device = "/dev/vda";  # 虚拟机磁盘设备
         type = "disk";
         content = {
-          type = "mbr";  # 使用MBR分区表(msdos)代替GPT，适用于BIOS
+          type = "gpt";  # 使用MBR分区表(msdos)代替GPT，适用于BIOS
           partitions = {
-            # BIOS启动分区
-            boot = {
-              type = "primary";
+            ESP = {
+              type = "EF00";
+              size = "500M";
               flags = ["boot"];  # 设置boot标志
               priority = 1;  # 确保它是第一个创建的分区
-              size = "1G";
               content = {
                 type = "filesystem";
-                format = "ext4";
+                format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "umask=0077"
+                ];
               };
             };
             # Btrfs根分区
