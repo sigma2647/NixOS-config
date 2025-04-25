@@ -16,8 +16,8 @@
         workgroup = "WORKGROUP";
         "server string" = "smbnix";
         "netbios name" = "smbnix";
-        "guest account" = "samba-guest";
-        "map to guest" = "bad user";
+        # "guest account" = "samba-guest";
+        # "map to guest" = "bad user";
       };
     };
   };
