@@ -2,17 +2,22 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/sda";  # 虚拟机磁盘设备
+        device = "/dev/vda";  # 虚拟机磁盘设备
         type = "disk";
         content = {
-          type = "msdos";  # 使用MBR分区表(msdos)代替GPT，适用于BIOS
+          type = "mbr";  # 使用MBR分区表(msdos)代替GPT，适用于BIOS
           partitions = {
             # BIOS启动分区
             boot = {
-              size = "1M";
               type = "primary";
               flags = ["boot"];  # 设置boot标志
               priority = 1;  # 确保它是第一个创建的分区
+              size = "1G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/boot";
+              };
             };
             # Btrfs根分区
             root = {
