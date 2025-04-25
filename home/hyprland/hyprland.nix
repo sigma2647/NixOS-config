@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ../waybar/
+    ../waybar
   ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {

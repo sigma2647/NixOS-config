@@ -5,14 +5,14 @@
     # ../../home/core.nix
     # ../../home/shell
     # ../../home/lf
-    # ../../home/yazi/yazi.nix
+    ../../home/cli/yazi
     # ../../home/kitty
     # ../../home/pyprland
     # ../../home/waybar
     # ../../home/rofi
     # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
-    # ../../home/cli/bash
+    ../../home/cli/bash
   ];
 
   home.packages = with pkgs; [
