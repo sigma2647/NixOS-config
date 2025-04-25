@@ -12,7 +12,7 @@
     # ../../home/rofi
     # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
-    ../../home/cli/bash
+    # ../../home/cli/bash
   ];
 
   home.packages = with pkgs; [
@@ -26,7 +26,7 @@
     yazi
     lazygit
     starship
-    devenv
+    # devenv
     traceroute
   ];
   programs.git = {
