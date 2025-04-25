@@ -8,33 +8,38 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ahci" "virtio_pci" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9e1ef850-9837-4111-86b9-f46ed3ba8eea";
+    { device = "/dev/disk/by-uuid/22aa7728-6edb-42dd-85f3-d20e5b99ad8a";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "subvol=root" ];
+    };
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/AA51-0667";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/9e1ef850-9837-4111-86b9-f46ed3ba8eea";
+    { device = "/dev/disk/by-uuid/22aa7728-6edb-42dd-85f3-d20e5b99ad8a";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [ "subvol=home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/9e1ef850-9837-4111-86b9-f46ed3ba8eea";
+    { device = "/dev/disk/by-uuid/22aa7728-6edb-42dd-85f3-d20e5b99ad8a";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
+      options = [ "subvol=nix" ];
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E590-5B7D";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+  fileSystems."/mnt/data" =
+    { device = "/dev/disk/by-uuid/e92f4bb6-9630-4e86-92b1-bd38652b59bf";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
@@ -48,4 +53,3 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
-
