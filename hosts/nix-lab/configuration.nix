@@ -84,6 +84,7 @@
     compsize
     python3
     uv
+    fastfetch
   ];
 
 
