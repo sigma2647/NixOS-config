@@ -85,6 +85,15 @@
     # browsh  # tui browser
     # lynx # tui browser
     # sqlitebrowser
+    # wireshark
+    # cherrytree
+    # burpsuite
+    # nemo-with-extensions
+    # nemo-emblems
+    # nemo-fileroller
+    # folder-color-switcher
+    # remmina # remote
+
 
   ];
   services.fstrim.enable = true;
