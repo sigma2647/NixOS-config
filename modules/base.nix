@@ -101,5 +101,6 @@
 
 
   ];
+  # environment.enableAllTerminfo = true;
   services.fstrim.enable = true;
 }
