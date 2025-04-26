@@ -122,9 +122,9 @@
   # ];
 
   # 设置全局环境变量
-  environment.variables = {
-    TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
-  };
+  # environment.variables = {
+  #   TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
+  # };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }

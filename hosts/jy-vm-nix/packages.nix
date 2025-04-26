@@ -46,7 +46,7 @@
     dufs
     emacs30
 
-    ncurses
+    # ncurses
 
     pkgs-unstable.python313Packages.markitdown
     taskwarrior3
