@@ -47,6 +47,8 @@
 
     # pkgs-unstable.docling
     pkgs-unstable.python313Packages.markitdown
+    remmina
+    wdisplays
 
   ];
 }
