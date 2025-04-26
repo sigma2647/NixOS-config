@@ -46,11 +46,13 @@
   };
   
   # 支持非 NixOS 编译的程序
-  # programs.nix-ld.enable = true;
-  # programs.nix-ld.libraries = with pkgs; [
-  #   stdenv.cc.cc.lib
-  #   zlib
-  # ];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    zlib
+    libgcc
+    glibc
+  ];
 
 
   # services.cachix-agent.enable = true;
