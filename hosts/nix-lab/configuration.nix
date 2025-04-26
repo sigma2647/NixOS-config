@@ -85,7 +85,13 @@
     python3
     uv
     fastfetch
+    nix-index
   ];
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
+  #   stdenv.cc.cc.lib
+  #   zlib
+  # ];
 
 
   # 防火墙

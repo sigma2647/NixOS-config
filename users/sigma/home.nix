@@ -12,6 +12,7 @@
     ../../home/pyprland
     ../../home/waybar
     ../../home/rofi
+    ../../home/git
     # ../../home/fcitx5
     # ../../home/hyprland/hyprland.nix
 
@@ -30,15 +31,10 @@
     xonsh
     zathura
     lan-mouse
-    texlive.combined.scheme-full
-    texstudio
+    # texlive.combined.scheme-full
+    # texstudio
     # inputs.ghostty.packages.x86_64-linux.default
   ];
-  programs.git = {
-    enable = true;
-    userName = "sigma2647";
-    userEmail = "1169446204@qq.com";
-  };
 
   programs.direnv = {
     enable = true;
