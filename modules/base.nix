@@ -69,6 +69,8 @@
     unzip
     gcc
     gcc13
+    ripgrep
+    fd
 
 
     # mission-center
