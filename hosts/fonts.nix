@@ -15,6 +15,13 @@
       # nerd-fonts       # 如果需要安装所有 Nerd Fonts，可以取消注释
       # nerd-fonts.fira-code  # 如果只需要特定的 Nerd Fonts，可以单独安装
       pkgs-unstable.nerd-fonts.jetbrains-mono
+
+      # # Maple Mono (Ligature TTF unhinted)
+      # maple-mono.truetype
+      # Maple Mono NF (Ligature unhinted)
+      # maple-mono.NF-unhinted
+      # Maple Mono NF CN (Ligature unhinted)
+      # maple-mono.NF-CN-unhinted
     ];
 
     fontDir.enable = true; # 启用统一字体目录
