@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, pkgs-unstable, ...}: let
     yazi-plugins = pkgs.fetchFromGitHub {
         owner = "yazi-rs";
         repo = "plugins";
@@ -8,6 +8,7 @@
 in {
 	programs.yazi = {
 		enable = true;
+    package = pkgs-unstable.yazi;  # 或者直接替换默认的 yazi
 		enableZshIntegration = true;
 		shellWrapperName = "y";
 
