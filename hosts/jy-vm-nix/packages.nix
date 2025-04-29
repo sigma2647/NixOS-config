@@ -49,5 +49,6 @@
     proxychains-ng
     pkgs-unstable.python313Packages.markitdown
     taskwarrior3
+    fastfetch
   ];
 }
