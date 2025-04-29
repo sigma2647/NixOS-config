@@ -24,7 +24,6 @@
     cmatrix
     pipx
     uv
-    yazi
     lazygit
     starship
     # devenv
