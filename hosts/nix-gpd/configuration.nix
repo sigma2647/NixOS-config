@@ -34,7 +34,7 @@
       useOSProber = true;
       efiInstallAsRemovable = true;
       default = "saved";
-      configurationLimit = 5;
+      # configurationLimit = 5;
       gfxmodeEfi = "1920x1200";
       theme = pkgs.catppuccin-grub;
     };

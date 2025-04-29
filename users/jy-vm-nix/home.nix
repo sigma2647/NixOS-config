@@ -23,11 +23,10 @@
     # tree
     btop
     cmatrix
-    yazi
     lazygit
     starship
     # cachix
-    devenv
+    # devenv
     traceroute
   ];
 
