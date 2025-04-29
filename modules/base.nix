@@ -12,12 +12,10 @@
       eval-cache = true;
       experimental-features = [ "nix-command" "flakes" ];
       max-jobs = "auto";
-      use-case-hack = false;
+      use-case-hack = false; #保持大小写敏感
       cores = 0;
-      use-xdg-base-directories = true;
-      # 开启二进制缓存压缩
-      compress-build-log = true;
-      # 自动清理过期的生成
+      use-xdg-base-directories = true; # 开启二进制缓存压缩
+      compress-build-log = true; # 自动清理过期的生成
       auto-optimise-store = true;
       substituters = [
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
