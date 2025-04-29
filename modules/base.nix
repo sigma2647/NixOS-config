@@ -100,6 +100,7 @@
     # nemo-fileroller
     # folder-color-switcher
     # remmina # remote
+    # dstask #git sync todo
 
 
   ];
