@@ -46,8 +46,7 @@
     dufs
     emacs30
 
-    # ncurses
-
+    proxychains-ng
     pkgs-unstable.python313Packages.markitdown
     taskwarrior3
   ];

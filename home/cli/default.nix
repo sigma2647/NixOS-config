@@ -18,6 +18,14 @@
     ./zoxide
   ];
 
+
+  home.packages = with pkgs; [
+    tree
+    btop
+    fastfetch
+    ripgrep
+  ];
+
   options = {
     cli.enable = lib.mkEnableOption "Enable cli module";
   };

@@ -12,7 +12,7 @@
       eval-cache = true;
       experimental-features = [ "nix-command" "flakes" ];
       max-jobs = "auto";
-      use-case-hack = true;
+      use-case-hack = false;
       cores = 0;
       use-xdg-base-directories = true;
       # 开启二进制缓存压缩

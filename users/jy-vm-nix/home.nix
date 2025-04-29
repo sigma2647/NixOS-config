@@ -4,7 +4,7 @@
   home.stateVersion = "24.11"; # 请根据实际版本设置
   imports = [
     ../../home/core.nix
-    ../../home/shell
+    # ../../home/shell
     # ../../home/lf
     ../../home/cli/yazi
     # ../../home/kitty
@@ -18,13 +18,14 @@
   ];
 
   home.packages = with pkgs; [
-    tealdeer
-    bat
+    # tealdeer
+    # bat
     # tree
     btop
     cmatrix
     lazygit
     starship
+    ncurses
     # cachix
     # devenv
     traceroute
@@ -37,4 +38,5 @@
 
   # home.file.".config/bat".source = /home/${username}/dotfile/arch/install.sh;
   # home.file.".config/bat".source = "${config.home.homeDirectory}/dotfile/arch/install.sh";
+
 }

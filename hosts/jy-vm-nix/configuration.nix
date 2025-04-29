@@ -126,7 +126,8 @@
   #   TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
   # };
   environment.variables = {
-    TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo:/run/current-system/sw/share/terminfo";
+    # TERMINFO = "${pkgs.ncurses}/share/terminfo:/run/current-system/sw/share/terminfo";
+    TERMINFO = "${pkgs.ncurses}/share/terminfo";
   };
 
 
