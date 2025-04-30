@@ -46,6 +46,7 @@
     hostName = hostname; # 改成你想要的主机名
     networkmanager.enable = true;
     enableIPv6 = true;
+    useNetworkd = true;
   };
 
 
