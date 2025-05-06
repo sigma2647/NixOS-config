@@ -51,5 +51,6 @@
     taskwarrior3
     fastfetch
     httpie
+    tree
   ];
 }
