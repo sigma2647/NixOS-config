@@ -2,7 +2,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    inherit username;
+    username = username; # 替换为你的用户名
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
   };

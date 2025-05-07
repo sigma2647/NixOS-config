@@ -85,7 +85,7 @@
         configFile
       ] ++ extraModules;
       extraSpecialArgs = {
-        inherit inputs;
+        inherit inputs username;
         pkgs = pkgsBySystem.${system}.stable;
         pkgs-unstable = pkgsBySystem.${system}.unstable;
       };
@@ -126,33 +126,6 @@
         configFile = ./users/lawrence/home.nix;
       };
 
-      # Darwin configurations
-      "mini" = mkHomeConfig {
-        system = "aarch64-darwin";
-        configFile = ./home/darwin/home.nix;
-      };
-
-      "darwin-arm" = mkHomeConfig {
-        system = "x86_64-darwin";
-        configFile = ./home/darwin/home.nix;
-      };
-
-      # Linux configurations
-      "linux-x86" = mkHomeConfig {
-        system = "x86_64-linux";
-        configFile = ./home/linux/home.nix;
-      };
-
-      "linux-arm" = mkHomeConfig {
-        system = "aarch64-linux";
-        configFile = ./home/linux/home.nix;
-      };
-
-      # Arch Linux configuration
-      "arch" = mkHomeConfig {
-        system = "x86_64-linux";
-        configFile = ./home/arch/home.nix;
-      };
 
     };
   };
