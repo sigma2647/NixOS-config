@@ -86,6 +86,11 @@ in {
 					desc = "Cd to nvim config";
 				}
 				{
+					on = ["g" "n"];
+					run = "cd ~/nixos-config";
+					desc = "Cd to nixos config";
+				}
+				{
 					on = ["<C-g>"];
 					run = "shell --confirm --block lazygit";
 					desc = "Lazygit";

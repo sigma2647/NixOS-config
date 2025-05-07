@@ -76,7 +76,7 @@
     };
 
     # Helper function for creating home-manager configurations
-    mkHomeConfig = { system, configFile, extraModules ? [] }: home-manager.lib.homeManagerConfiguration {
+    mkHomeConfig = { username, system, configFile, extraModules ? [] }: home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -119,6 +119,13 @@
     };
 
     homeConfigurations = {
+
+      "lawrence@fedora-alien" = mkHomeConfig {
+        username = "lawrence";
+        system = "x86_64-linux";
+        configFile = ./users/lawrence/home.nix;
+      };
+
       # Darwin configurations
       "mini" = mkHomeConfig {
         system = "aarch64-darwin";
