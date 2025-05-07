@@ -1,9 +1,9 @@
-{ config, pkgs, pkgs-unstable, inputs, username, ... }:
+{ config, pkgs, system, pkgs-unstable, inputs, username, ... }:
 
 {
 
   imports = [
-    ../../home/core.nix
+    # ../../home/core.nix
     # ../../home/shell
     # ../../home/lf
     ../../home/cli/yazi
@@ -16,6 +16,14 @@
     # ../../home/cli/bash
     ../../home/git
   ];
+  
+  home.username = username;
+  home.homeDirectory = if system == "x86_64-linux" then "/home/${username}" else "/Users/${username}";
+  home.stateVersion = "24.11";
+  programs.home-manager.enable = true;
+  
+
+  
 
   home.packages = with pkgs-unstable; [
     # tealdeer
