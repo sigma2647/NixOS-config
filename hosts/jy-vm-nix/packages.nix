@@ -50,5 +50,7 @@
     pkgs-unstable.python313Packages.markitdown
     taskwarrior3
     fastfetch
+    httpie
+    tree
   ];
 }
