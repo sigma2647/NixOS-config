@@ -123,13 +123,13 @@
       "lawrence@fedora-alien" = mkHomeConfig {
         username = "lawrence";
         system = "x86_64-linux";
-        configFile = ./users/${username}/home.nix;
+        configFile = ./users/lawrence/home.nix;
       };
 
       "lawrence@mac" = mkHomeConfig {
         username = "lawrence";
         system = "aarch64-darwin";
-        configFile = ./users/lawrence/mac-home.nix;
+        configFile = ./users/lawrence/home.nix;
         # extraModules = [ ../../home/darwin/default.nix ]; 
       };
 
