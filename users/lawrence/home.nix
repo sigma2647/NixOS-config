@@ -1,4 +1,4 @@
-{ config, pkgs, system, pkgs-unstable, inputs, username, hostname, ... }:
+{ config, pkgs, system, pkgs-unstable, inputs, username, hostname, lib, ... }:
 
 {
 
@@ -66,9 +66,9 @@
   };
 
   # macOS specific configurations
-  home.activation = lib.mkIf (system == "aarch64-darwin" && hostname == "mini") {
+  home.activation = if system == "aarch64-darwin" && hostname == "mini" then {
     # Add macOS specific activation scripts here
-  };
+  } else {};
 
   # home.file.".config/bat".source = /home/${username}/dotfile/arch/install.sh;
   # home.file.".config/bat".source = "${config.home.homeDirectory}/dotfile/arch/install.sh";
