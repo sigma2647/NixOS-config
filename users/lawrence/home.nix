@@ -48,6 +48,7 @@
     # tree
     # btop
     # cmatrix
+    zoxide
     lazygit
     starship
     # ncurses
