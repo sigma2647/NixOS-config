@@ -131,7 +131,11 @@
         # extraModules = [ ../../home/darwin/default.nix ]; 
       };
 
-
+      "lawrence@mini" = mkHomeConfig {
+        username = "lawrence";
+        system = "aarch64-darwin";
+        configFile = ./users/lawrence/home.nix;
+      };
 
     };
   };
