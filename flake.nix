@@ -76,14 +76,14 @@
     };
 
     # Helper function for creating home-manager configurations
-    mkHomeConfig = { username, system, configFile, extraModules ? [] }: home-manager.lib.homeManagerConfiguration {
+    mkHomeConfig = { username, system, configFile, extraModules ? [], hostname ? null }: home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
       modules = [ configFile ] ++ extraModules;
       extraSpecialArgs = {
-        inherit inputs username system;
+        inherit inputs username system hostname;
         pkgs = pkgsBySystem.${system}.stable;
         pkgs-unstable = pkgsBySystem.${system}.unstable;
       };
@@ -122,19 +122,21 @@
         username = "lawrence";
         system = "x86_64-linux";
         configFile = ./users/lawrence/home.nix;
+        hostname = "fedora-alien";
       };
 
       "lawrence@mac" = mkHomeConfig {
         username = "lawrence";
         system = "aarch64-darwin";
         configFile = ./users/lawrence/home.nix;
-        # extraModules = [ ../../home/darwin/default.nix ]; 
+        hostname = "mac";
       };
 
       "lawrence@mini" = mkHomeConfig {
         username = "lawrence";
         system = "aarch64-darwin";
         configFile = ./users/lawrence/home.nix;
+        hostname = "mini";
       };
 
     };

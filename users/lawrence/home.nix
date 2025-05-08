@@ -55,7 +55,7 @@
     # devenv
   ] ++ (if system == "x86_64-linux" || system == "aarch64-linux" then [
     traceroute
-  ] else []) ++ (if system == "aarch64-darwin" && hostname == "mini" then [
+  ] else []) ++ (if system == "aarch64-darwin" && (hostname or "") == "mini" then [
     # macOS specific packages for mini
     # Add your macOS specific packages here
   ] else []);
@@ -66,7 +66,7 @@
   };
 
   # macOS specific configurations
-  home.activation = if system == "aarch64-darwin" && hostname == "mini" then {
+  home.activation = if system == "aarch64-darwin" && (hostname or "") == "mini" then {
     # Add macOS specific activation scripts here
   } else {};
 
