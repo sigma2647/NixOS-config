@@ -26,16 +26,16 @@
   programs.home-manager.enable = true;
 
   # Set zsh as default shell
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      la = "ls -la";
-    };
-  };
+  # programs.zsh = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #   autosuggestion.enable = true;
+  #   syntaxHighlighting.enable = true;
+  #   shellAliases = {
+  #     ll = "ls -l";
+  #     la = "ls -la";
+  #   };
+  # };
 
   # Set zsh as default shell
   home.sessionVariables = {
@@ -47,9 +47,9 @@
     # bat
     # tree
     # btop
-    cmatrix
+    # cmatrix
     lazygit
-    # starship
+    starship
     # ncurses
     # cachix
     # devenv
