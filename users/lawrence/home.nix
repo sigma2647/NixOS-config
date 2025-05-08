@@ -1,4 +1,4 @@
-{ config, pkgs, system, pkgs-unstable, inputs, username, ... }:
+{ config, pkgs, system, pkgs-unstable, inputs, username, hostname, ... }:
 
 {
 
@@ -15,7 +15,10 @@
     # ../../home/hyprland/hyprland.nix
     # ../../home/cli/bash
     ../../home/git
-  ];
+  ] ++ (if system == "aarch64-darwin" then [
+    # macOS specific imports
+    ../../home/darwin/default.nix
+  ] else []);
   
   home.username = username;
   home.homeDirectory = if system == "x86_64-linux" then "/home/${username}" else "/Users/${username}";
@@ -50,12 +53,21 @@
     # ncurses
     # cachix
     # devenv
+  ] ++ (if system == "x86_64-linux" || system == "aarch64-linux" then [
     traceroute
-  ];
+  ] else []) ++ (if system == "aarch64-darwin" && hostname == "mini" then [
+    # macOS specific packages for mini
+    # Add your macOS specific packages here
+  ] else []);
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  # macOS specific configurations
+  home.activation = lib.mkIf (system == "aarch64-darwin" && hostname == "mini") {
+    # Add macOS specific activation scripts here
   };
 
   # home.file.".config/bat".source = /home/${username}/dotfile/arch/install.sh;
