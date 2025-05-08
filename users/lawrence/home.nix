@@ -17,7 +17,7 @@
     ../../home/git
   ] ++ (if system == "aarch64-darwin" then [
     # macOS specific imports
-    ../../home/darwin/default.nix
+    # ../../home/darwin/default.nix
   ] else []);
   
   home.username = username;
