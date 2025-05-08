@@ -21,9 +21,23 @@
   home.homeDirectory = if system == "x86_64-linux" then "/home/${username}" else "/Users/${username}";
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
-  
 
-  
+  # Set zsh as default shell
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      ll = "ls -l";
+      la = "ls -la";
+    };
+  };
+
+  # Set zsh as default shell
+  home.sessionVariables = {
+    SHELL = "${pkgs.zsh}/bin/zsh";
+  };
 
   home.packages = with pkgs-unstable; [
     # tealdeer
