@@ -81,11 +81,9 @@
         inherit system;
         config.allowUnfree = true;
       };
-      modules = [
-        configFile
-      ] ++ extraModules;
+      modules = [ configFile ] ++ extraModules;
       extraSpecialArgs = {
-        inherit inputs username;
+        inherit inputs username system;
         pkgs = pkgsBySystem.${system}.stable;
         pkgs-unstable = pkgsBySystem.${system}.unstable;
       };
