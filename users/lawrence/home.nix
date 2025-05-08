@@ -50,6 +50,8 @@
     # cmatrix
     lazygit
     starship
+    neovim
+    zoxide
     # ncurses
     # cachix
     # devenv
