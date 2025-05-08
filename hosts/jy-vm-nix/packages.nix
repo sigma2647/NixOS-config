@@ -52,5 +52,6 @@
     fastfetch
     httpie
     tree
+    ncurses
   ];
 }

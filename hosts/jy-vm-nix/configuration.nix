@@ -125,10 +125,6 @@
   # environment.variables = {
   #   TERMINFO_DIRS = "${pkgs.ncurses}/share/terminfo";
   # };
-  environment.variables = {
-    # TERMINFO = "${pkgs.ncurses}/share/terminfo:/run/current-system/sw/share/terminfo";
-    TERMINFO = "${pkgs.ncurses}/share/terminfo";
-  };
 
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
