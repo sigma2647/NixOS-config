@@ -54,6 +54,9 @@
     zoxide
     # ncurses
     # cachix
+    gping
+    dufs
+    proxychains-ng
     # devenv
   ] ++ (if system == "x86_64-linux" || system == "aarch64-linux" then [
     traceroute
