@@ -57,6 +57,7 @@
     gping
     dufs
     proxychains-ng
+    fastfetch
     # devenv
   ] ++ (if system == "x86_64-linux" || system == "aarch64-linux" then [
     traceroute
