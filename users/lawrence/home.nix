@@ -58,6 +58,7 @@
     dufs
     proxychains-ng
     fastfetch
+    element-desktop
     # devenv
   ] ++ (if system == "x86_64-linux" || system == "aarch64-linux" then [
     traceroute
