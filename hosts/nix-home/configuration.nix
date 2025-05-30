@@ -74,10 +74,11 @@ pkgs,
   # };
 
   # 配置 Nix 的 channels
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-  };
+  # 允许非自由软件（如果需要）
+  # nixpkgs.config.allowUnfree = true;  # 已通过 flake.nix 中的 specialArgs.pkgs 配置
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+  # };
 
 
   # 用户

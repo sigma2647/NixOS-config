@@ -2,14 +2,14 @@
   description = "Lawrence's config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-24.11/nixexprs.tar.xz";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs/nixos-24.11.git?shallow=1";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # disko = {
@@ -63,6 +63,7 @@
       modules = [
         ./hosts/${hostname}/configuration.nix
         ./modules/base.nix
+        { nixpkgs.pkgs = pkgsBySystem.${system}.stable; }
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;

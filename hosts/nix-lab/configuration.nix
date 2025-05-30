@@ -100,7 +100,7 @@
   networking.firewall.enable = true;
 
   # 允许非自由软件（如果需要）
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;  # 已通过 flake.nix 中的 specialArgs.pkgs 配置
 
   system.stateVersion = "24.11"; # 使用你安装时的 NixOS 版本
 }
