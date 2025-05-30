@@ -13,6 +13,7 @@
       ../../modules/services/openssh.nix
       ../../modules/docker.nix
       ../../modules/virtual/vmware.nix
+      # ../../modules/tor
       # ../../modules/mysql
     ];
 
@@ -44,6 +45,8 @@
     interval = "weekly";
     fileSystems = [ "/" "/nix" ];
   };
+
+  # services.timesyncd.enable = true;
 
   # zram 配置
   zramSwap = {
