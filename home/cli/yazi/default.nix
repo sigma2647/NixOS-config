@@ -13,7 +13,7 @@ in {
 		shellWrapperName = "y";
 
 		settings = {
-			manager = {
+			mgr = {
 				show_hidden = false;
 			};
 			preview = {
@@ -64,7 +64,7 @@ in {
 		# '';
 
 		keymap = {
-			manager.prepend_keymap = [
+			mgr.prepend_keymap = [
 				{
 					on = "T";
 					run = "plugin --sync max-preview";
