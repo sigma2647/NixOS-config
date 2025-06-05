@@ -22,7 +22,7 @@
   
   home.username = username;
   home.homeDirectory = if system == "x86_64-linux" then "/home/${username}" else "/Users/${username}";
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
   # Set zsh as default shell
