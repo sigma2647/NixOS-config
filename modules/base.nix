@@ -10,7 +10,11 @@
       fallback = true;
       log-lines = 25;  # 减少日志输出
       eval-cache = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "ca-derivations"
+      ];
       max-jobs = "auto";
       use-case-hack = false; #保持大小写敏感
       cores = 0;
