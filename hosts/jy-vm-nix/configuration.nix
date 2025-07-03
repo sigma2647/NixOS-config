@@ -105,7 +105,7 @@
   # 开启防火墙并允许特定端口
   networking.firewall = {
     enable = true;  # 启用防火墙
-    allowedTCPPorts = [ 80 443 8080 8888 ];  # 允许的TCP端口
+    allowedTCPPorts = [ 80 443 8080 8888 5000 8000 ];  # 允许的TCP端口
     # allowedUDPPorts = [ 53 8080 8888 ];  # 允许的UDP端口
     allowedUDPPorts = [ 53 ];  # 允许的UDP端口
   };
