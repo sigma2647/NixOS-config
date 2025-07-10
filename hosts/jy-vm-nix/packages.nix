@@ -53,5 +53,9 @@
     httpie
     tree
     ncurses
+    p7zip
+    glow
+    jq
+    nmap
   ];
 }
